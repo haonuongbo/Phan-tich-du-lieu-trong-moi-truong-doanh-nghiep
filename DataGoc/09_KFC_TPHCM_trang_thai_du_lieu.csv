@@ -1,0 +1,12 @@
+﻿du_lieu_can_thiet,ket_qua_tim_kiem,cach_su_dung
+Lịch sử KFC tại TP.HCM,Có trên trang KFC,"Tháng 12/1997. Đây là thông tin lịch sử, không phải dữ liệu doanh thu."
+Số cửa hàng thực tế,Chưa có bộ đếm được kiểm chứng,"20 cửa hàng trong phần thực hành là hư cấu, không phải quy mô thực tế."
+Doanh thu / lợi nhuận năm,Chưa tìm được,Phần phân tích doanh thu và lợi nhuận dùng dữ liệu mô phỏng.
+Doanh thu tháng/quý,Chưa tìm được,Có 36 tháng và 12 quý mô phỏng.
+Tài chính công bố riêng TP.HCM,Chưa tìm được,Không chuyển số liệu toàn quốc thành số liệu TP.HCM.
+Dữ liệu ngoài TP.HCM,Đã loại khỏi phạm vi phân tích,"Không dùng tổng doanh thu, lợi nhuận hoặc số cửa hàng toàn Việt Nam."
+Doanh thu / chi phí từng cửa hàng,Chưa tìm được,"576 dòng mô phỏng cho 20 cửa hàng hư cấu, tất cả gắn nhãn TP.HCM."
+Đơn hàng và AOV,Chưa tìm được dữ liệu thật,Có trong mô phỏng. Không có giao dịch thật.
+Cơ cấu kênh bán hàng,Có trong mô phỏng,Tỷ trọng và phí kênh là giả định phục vụ môn học.
+"Quay lại, CSAT, NPS",Chưa có dữ liệu,Chưa thể tính. Cần mã khách hàng hoặc khảo sát được thu thập thực tế.
+Thị trường thức ăn nhanh TP.HCM,Chưa có dữ liệu đồng nhất được kiểm chứng,Chưa tính thị phần. Đã loại số liệu thị trường toàn Việt Nam.

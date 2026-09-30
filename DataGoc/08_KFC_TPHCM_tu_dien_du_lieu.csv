@@ -1,0 +1,36 @@
+﻿tep,ten_cot,kieu_du_lieu,don_vi,dinh_nghia
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,thang,date,YYYY-MM-DD,Ngày đầu tháng; khóa kết hợp với store_id.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,nam,integer,năm,Năm lịch của thang.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,quy,integer,quý,"1–4, theo năm lịch."
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,store_id,text,mã,Mã cửa hàng hư cấu; nối bảng cửa hàng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,thanh_pho,text,địa bàn,Tất cả cửa hàng mô phỏng gắn nhãn TP.HCM.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,don_tai_quan,integer,đơn,Số đơn hoàn tất tại quán.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,don_nen_tang,integer,đơn,Số đơn hoàn tất qua nền tảng giao hàng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,don_online_rieng,integer,đơn,Số đơn hoàn tất qua kênh trực tuyến riêng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,AOV_tai_quan,decimal,VND/đơn,"AOV tại quán, sau giảm giá và chưa VAT."
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,AOV_nen_tang,decimal,VND/đơn,AOV qua nền tảng giao hàng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,AOV_online_rieng,decimal,VND/đơn,AOV qua kênh trực tuyến riêng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,ty_le_gia_von,decimal,tỷ lệ,Tỷ lệ giá vốn giả định trên tổng doanh thu.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,ty_le_phi_nen_tang,decimal,tỷ lệ,Phí giả định trên doanh thu nền tảng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,ty_le_nhuong_quyen,decimal,tỷ lệ,"Phí nhượng quyền giả định, không phải hợp đồng KFC."
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,luong_VND,decimal,VND,Chi phí lương tháng giả lập.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,thue_VND,decimal,VND,Chi phí thuê tháng giả lập.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,khac_VND,decimal,VND,Chi phí khác; gồm chi phí khai trương tháng mở đầu.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,khau_hao_VND,decimal,VND,Khấu hao tháng giả lập.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,DT_tai_quan,decimal,VND,don_tai_quan × AOV_tai_quan.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,DT_nen_tang,decimal,VND,don_nen_tang × AOV_nen_tang.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,DT_online_rieng,decimal,VND,don_online_rieng × AOV_online_rieng.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,DT_tong,decimal,VND,Tổng doanh thu ba kênh; không trừ phí nền tảng ở đây.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,tong_don,integer,đơn,Tổng số đơn của ba kênh.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,gia_von_VND,decimal,VND,DT_tong × ty_le_gia_von.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,phi_nen_tang_VND,decimal,VND,DT_nen_tang × ty_le_phi_nen_tang.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,phi_nhuong_quyen_VND,decimal,VND,DT_tong × ty_le_nhuong_quyen.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,loi_nhuan_gop,decimal,VND,DT_tong − gia_von_VND.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,LN_van_hanh_mo_hinh,decimal,VND,"Lợi nhuận gộp trừ lương, thuê, khác, khấu hao và các phí. Chưa gồm lãi vay, thuế, chi phí trụ sở chưa phân bổ."
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,bien_LN_van_hanh,decimal,tỷ lệ,LN_van_hanh_mo_hinh / DT_tong.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,AOV_tong,decimal,VND/đơn,DT_tong / tong_don.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,ty_trong_DT_online,decimal,tỷ lệ,(DT_nen_tang + DT_online_rieng) / DT_tong.
+03_KFC_TPHCM_van_hanh_thang_mo_phong.csv,loai_du_lieu,text,nhãn,"MO_PHONG, không phải dữ liệu thực tế KFC."
+Các file mô phỏng,phien_ban,text,mã,"HCM_SIM_v1, để nhận biết bộ mô phỏng."
+Các bảng dữ liệu,loai_du_lieu,text,nhãn,THUC_TE_CONG_BO là thông tin công bố; MO_PHONG là giả lập.
+Các bảng KPI,tỷ lệ,decimal,tỷ lệ,"0.15 tương ứng 15%. KPI thiếu năm trước để trống, không thay bằng 0."

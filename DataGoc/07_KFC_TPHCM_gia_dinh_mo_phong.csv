@@ -1,0 +1,30 @@
+﻿tham_so,gia_tri,giai_thich,loai_du_lieu,phien_ban
+Nguồn gốc,MÔ PHỎNG TOÀN BỘ,20 cửa hàng hư cấu tại TP.HCM. Không phải dữ liệu nội bộ hoặc ước tính kết quả thật của KFC.,MO_PHONG,HCM_SIM_v1
+Khoảng thời gian,2023-01 đến 2025-12,36 tháng lịch.,MO_PHONG,HCM_SIM_v1
+Quy mô,20,"Quy mô giả lập: 12 cửa hàng từ 01/2023, thêm 4 từ 01/2024, thêm 4 từ 01/2025. Không phải số cửa hàng thật.",MO_PHONG,HCM_SIM_v1
+Số dòng cửa hàng-tháng,576,Chỉ có dòng sau ngày mở. Không giả định cửa hàng đóng.,MO_PHONG,HCM_SIM_v1
+Hạt giống ngẫu nhiên,240930,LCG cố định để tái lập dữ liệu.,MO_PHONG,HCM_SIM_v1
+Tiền tệ,VND,"Doanh thu sau giảm giá, chưa VAT. Không phải số tiền thu hộ.",MO_PHONG,HCM_SIM_v1
+Số đơn/tháng cơ sở,2.800–6.200,"Tùy cửa hàng, trước hệ số mùa vụ, trưởng thành và nhiễu.",MO_PHONG,HCM_SIM_v1
+Xu hướng số đơn,0.03,Tăng giả định mỗi năm trên cửa hàng trưởng thành. Không phải tăng trưởng KFC.,MO_PHONG,HCM_SIM_v1
+AOV cơ sở,90.000–125.000 VND,Khác nhau giữa cửa hàng và kênh.,MO_PHONG,HCM_SIM_v1
+Xu hướng AOV,0.025,"Tăng giả định 2,5%/năm.",MO_PHONG,HCM_SIM_v1
+Mùa vụ tháng 01–12,"1,05; 0,92; 0,96; 1,00; 1,02; 1,05; 1,08; 1,04; 0,97; 1,00; 1,03; 1,12",Cùng hệ số mỗi năm. Không gán nguyên nhân thực tế.,MO_PHONG,HCM_SIM_v1
+Nhiễu nhu cầu,±10%,"Phân phối đều, độc lập theo cửa hàng-tháng.",MO_PHONG,HCM_SIM_v1
+Trưởng thành cửa hàng,Tháng 1: 60%; tháng 2: 75%; tháng 3: 88%; sau đó: 100%,Mở ngày đầu tháng nên không cần chia ngày hoạt động.,MO_PHONG,HCM_SIM_v1
+Kênh nền tảng,18–28% số đơn cơ sở,Tăng 2 điểm %/năm trong giả định.,MO_PHONG,HCM_SIM_v1
+Kênh trực tuyến riêng,8–14% số đơn cơ sở,Tăng 1 điểm %/năm trong giả định.,MO_PHONG,HCM_SIM_v1
+Giá vốn,40–46% doanh thu,Khác nhau giữa cửa hàng. Nhiễu khoảng ±1 điểm %.,MO_PHONG,HCM_SIM_v1
+Phí nền tảng,0.22,"Tính trên doanh thu qua nền tảng, ghi riêng để không trừ trùng doanh thu.",MO_PHONG,HCM_SIM_v1
+Phí nhượng quyền giả định,0.04,"Chỉ là tham số mô phỏng, không phải hợp đồng KFC.",MO_PHONG,HCM_SIM_v1
+"Lương, thuê, chi phí khác",Chi phí cố định cửa hàng/tháng,Tăng giả định 4%/năm. Cửa hàng cuối nhóm có thuê cao để tạo tình huống phân tích.,MO_PHONG,HCM_SIM_v1
+Khấu hao,8–15 triệu VND/tháng,"Giả định riêng, đã trừ trong lợi nhuận vận hành mô hình.",MO_PHONG,HCM_SIM_v1
+Chi phí khai trương,20000000,"Phát sinh một lần tháng mở đầu, mô phỏng 20 triệu VND.",MO_PHONG,HCM_SIM_v1
+Lợi nhuận vận hành mô hình,Doanh thu trừ các chi phí được mô hình hóa,"Không phải lợi nhuận ròng. Chưa gồm lãi vay, thuế và chi phí trụ sở chưa phân bổ.",MO_PHONG,HCM_SIM_v1
+Khách hàng quay lại / CSAT / NPS,Chưa tạo,"Không có lịch sử khách hàng hoặc khảo sát thực tế. AOV là doanh thu/đơn, không phải chi tiêu/khách.",MO_PHONG,HCM_SIM_v1
+Liên kết với dữ liệu công khai,Không hiệu chỉnh về tổng doanh thu công khai,Không phân bổ doanh thu toàn quốc cho TP.HCM. Không cộng số công khai với số mô phỏng.,MO_PHONG,HCM_SIM_v1
+Thước đo đánh giá,So với kỳ trước và mục tiêu do nhóm xác định,Không có quy tắc chung rằng 3/4 nhóm KPI tích cực là kinh doanh hiệu quả.,MO_PHONG,HCM_SIM_v1
+Cơ sở tạo dữ liệu,Giả định phục vụ học tập,"Thông tin thực tế hiện có chỉ là mốc lịch sử. Chưa đủ để hiệu chỉnh số đơn, AOV hoặc chi phí riêng của KFC tại TP.HCM.",MO_PHONG,HCM_SIM_v1
+Định dạng xuất,"CSV UTF-8 có BOM, dấu phẩy","Ngày YYYY-MM-DD. Tiền VND, tỷ lệ dạng số thập phân, ô trống là thiếu dữ liệu.",MO_PHONG,HCM_SIM_v1
+Kết quả tính toán,Giá trị tại thời điểm xuất,"CSV không giữ công thức Excel. Nếu sửa dữ liệu đầu vào, cần tính lại các cột và KPI bằng Python, SQL hoặc Power BI.",MO_PHONG,HCM_SIM_v1
+Nhóm cửa hàng cùng kỳ,SIM001–SIM012,Đủ cả 36 tháng. Không lấy tăng DT/cửa hàng toàn chuỗi thay cho tăng trưởng cùng cửa hàng.,MO_PHONG,HCM_SIM_v1
