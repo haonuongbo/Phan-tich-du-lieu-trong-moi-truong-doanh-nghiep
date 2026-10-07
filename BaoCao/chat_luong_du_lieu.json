@@ -1,0 +1,73 @@
+{
+  "nhan_du_lieu": "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.",
+  "trang_thai": "DAT",
+  "cua_hang_trung_hoan_toan_da_bo": 4,
+  "doi_chieu_cong_thuc": {
+    "DT_tai_quan": {
+      "sai_lech_toi_da": 0.0,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "DT_nen_tang": {
+      "sai_lech_toi_da": 0.0,
+      "so_dong_vuot_dung_sai": 1
+    },
+    "DT_online_rieng": {
+      "sai_lech_toi_da": 0.0,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "DT_tong": {
+      "sai_lech_toi_da": 9000.0,
+      "so_dong_vuot_dung_sai": 2
+    },
+    "tong_don": {
+      "sai_lech_toi_da": 0.0,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "gia_von_VND": {
+      "sai_lech_toi_da": 9.238719940185547e-07,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "phi_nen_tang_VND": {
+      "sai_lech_toi_da": 7.450580596923828e-09,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "phi_nhuong_quyen_VND": {
+      "sai_lech_toi_da": 7.450580596923828e-09,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "loi_nhuan_gop": {
+      "sai_lech_toi_da": 1.7285346984863281e-06,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "LN_van_hanh_mo_hinh": {
+      "sai_lech_toi_da": 1.6987323760986328e-06,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "bien_LN_van_hanh": {
+      "sai_lech_toi_da": 1.942890293094024e-15,
+      "so_dong_vuot_dung_sai": 1
+    },
+    "AOV_tong": {
+      "sai_lech_toi_da": 9.89530235528946e-10,
+      "so_dong_vuot_dung_sai": 0
+    },
+    "ty_trong_DT_online": {
+      "sai_lech_toi_da": 9.43689570931383e-16,
+      "so_dong_vuot_dung_sai": 0
+    }
+  },
+  "van_hanh_trung_hoan_toan_da_bo": 12,
+  "so_dong_nguon_cua_hang": 29,
+  "so_dong_nguon": 597,
+  "nguon_van_hanh": "DULIEUTHO.csv",
+  "so_dong_loi_cua_hang": 5,
+  "so_dong_loi_van_hanh": 9,
+  "so_o_da_sua": 661,
+  "so_dong_sach": 576,
+  "so_cua_hang": 20,
+  "so_thang": 36,
+  "tu_thang": "2023-01-01",
+  "den_thang": "2025-12-01",
+  "so_dong_doi_chieu_cong_thuc": 576,
+  "phan_tich_menu_khu_vuc": "Kịch bản phân bổ giả định; không phải giao dịch POS, sở thích khách hàng hoặc vị trí thực tế."
+}

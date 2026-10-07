@@ -1,0 +1,62 @@
+// Mỗi khối là MỘT measure: Modeling > New measure. Tạo trong Fact_Operation.
+// Định dạng VND: #,0; tỷ lệ: 0.00%; cửa hàng bình quân: 0.0.
+// Dùng slicer thời gian từ Dim_Date, slicer cửa hàng từ Dim_Store.
+
+Doanh thu = SUM(Fact_Operation[DT_tong])
+
+So don = SUM(Fact_Operation[tong_don])
+
+Loi nhuan gop = SUM(Fact_Operation[loi_nhuan_gop])
+
+Loi nhuan van hanh = SUM(Fact_Operation[LN_van_hanh_mo_hinh])
+
+Bien loi nhuan gop = DIVIDE([Loi nhuan gop], [Doanh thu])
+
+Bien loi nhuan van hanh = DIVIDE([Loi nhuan van hanh], [Doanh thu])
+
+AOV = DIVIDE([Doanh thu], [So don])
+
+Doanh thu online = SUM(Fact_Operation[DT_nen_tang]) + SUM(Fact_Operation[DT_online_rieng])
+
+Ty trong online = DIVIDE([Doanh thu online], [Doanh thu])
+
+So cua hang = DISTINCTCOUNT(Fact_Operation[store_id])
+
+// Tính cả tháng không phát sinh của cửa hàng được chọn là 0.
+Cua hang binh quan =
+AVERAGEX(
+    VALUES(Dim_Date[nam_thang]),
+    COALESCE(CALCULATE(DISTINCTCOUNT(Fact_Operation[store_id])), 0)
+)
+
+Doanh thu moi cua hang = DIVIDE([Doanh thu], [Cua hang binh quan])
+
+// Chỉ tính tăng trưởng khi cả hai kỳ có đủ số tháng trong phạm vi đang chọn.
+Doanh thu ky truoc = CALCULATE([Doanh thu], DATEADD(Dim_Date[ngay], -1, MONTH))
+
+Tang truong MoM =
+VAR MonthCount = COUNTROWS(VALUES(Dim_Date[nam_thang]))
+VAR CurrentCount = DISTINCTCOUNT(Fact_Operation[thang])
+VAR PreviousCount = CALCULATE(DISTINCTCOUNT(Fact_Operation[thang]), DATEADD(Dim_Date[ngay], -1, MONTH))
+VAR PreviousRevenue = [Doanh thu ky truoc]
+RETURN IF(MonthCount = 1 && CurrentCount = 1 && PreviousCount = 1,
+    DIVIDE([Doanh thu] - PreviousRevenue, PreviousRevenue), BLANK())
+
+Doanh thu cung ky = CALCULATE([Doanh thu], DATEADD(Dim_Date[ngay], -1, YEAR))
+
+Tang truong YoY =
+VAR MonthCount = COUNTROWS(VALUES(Dim_Date[nam_thang]))
+VAR CurrentCount = DISTINCTCOUNT(Fact_Operation[thang])
+VAR PreviousCount = CALCULATE(DISTINCTCOUNT(Fact_Operation[thang]), DATEADD(Dim_Date[ngay], -1, YEAR))
+VAR PreviousRevenue = [Doanh thu cung ky]
+RETURN IF(CurrentCount = MonthCount && PreviousCount = MonthCount,
+    DIVIDE([Doanh thu] - PreviousRevenue, PreviousRevenue), BLANK())
+
+// Dùng riêng cho biểu đồ kênh; slicer kenh chỉ áp dụng Fact_Channel.
+Doanh thu kenh = SUM(Fact_Channel[doanh_thu])
+
+So don kenh = SUM(Fact_Channel[so_don])
+
+AOV kenh = DIVIDE([Doanh thu kenh], [So don kenh])
+
+Nhan du lieu = "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC"

@@ -1,0 +1,9 @@
+﻿menu_id,ten_mon,nhom_mon,gia_tham_chieu_VND,co_so_du_lieu,loai_du_lieu
+M01,Gà rán truyền thống (1 phần),Gà,45000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M02,Gà sốt cay (1 phần),Gà,50000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M03,Burger gà,Burger và cơm,45000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M04,Cơm gà,Burger và cơm,50000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M05,Combo một người,Combo,90000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M06,Combo nhóm,Combo,220000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M07,Khoai tây chiên,Món phụ và đồ uống,25000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
+M08,Nước giải khát,Món phụ và đồ uống,15000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS,MO_PHONG
