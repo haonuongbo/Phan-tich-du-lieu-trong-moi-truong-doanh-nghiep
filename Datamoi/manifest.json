@@ -1,0 +1,159 @@
+{
+  "ten_dataset": "Ban hang mo phong va thuc don cong khai",
+  "ngay_tao": "2026-10-11",
+  "pham_vi_ban_hang": "2023-01 den 2025-12",
+  "ngay_tra_cuu_menu": "2026-10-11",
+  "nhan": "Bán hàng và cửa hàng: MO_PHONG. Thực đơn: CONG_KHAI, mẫu từ nội dung chính thức được lập chỉ mục.",
+  "nguon_chinh": "Hai CSV trong DataGoc; không dùng DataSach hoặc DataPhantich làm đầu vào.",
+  "nguon_menu": "https://kfcvietnam.com.vn/order/delivery",
+  "gioi_han_menu": "Chưa chọn cửa hàng; ngày tra cứu không phải ngày hiệu lực. Không dùng giá 2026 cho số bán 2023–2025. Không xác nhận giá thanh toán.",
+  "rows": {
+    "CUAHANG_THO.csv": 29,
+    "CUAHANG_SACH.csv": 20,
+    "DULIEUTHO.csv": 597,
+    "DULIEUSACH.csv": 576,
+    "MENU_CONGKHAI_THO.csv": 8,
+    "MENU_CONGKHAI_SACH.csv": 8,
+    "NHATKY_LAMSACH.csv": 1861,
+    "TUDIEN_DULIEU.csv": 82
+  },
+  "clean_store_months": 576,
+  "stores": 20,
+  "months": 36,
+  "dates": [
+    "2023-01-01",
+    "2025-12-01"
+  ],
+  "revenue_by_year": {
+    "2023": 78631832128,
+    "2024": 116703907795,
+    "2025": 146385764418
+  },
+  "actions": [
+    {
+      "nguon_tep": "02_KFC_TPHCM_cua_hang_mo_phong.csv",
+      "hanh_dong": "BO_TRUNG",
+      "so_su_kien": 6
+    },
+    {
+      "nguon_tep": "02_KFC_TPHCM_cua_hang_mo_phong.csv",
+      "hanh_dong": "LOAI_DONG",
+      "so_su_kien": 3
+    },
+    {
+      "nguon_tep": "02_KFC_TPHCM_cua_hang_mo_phong.csv",
+      "hanh_dong": "SUA_O",
+      "so_su_kien": 34
+    },
+    {
+      "nguon_tep": "DULIEUTHO.csv",
+      "hanh_dong": "BO_TRUNG",
+      "so_su_kien": 14
+    },
+    {
+      "nguon_tep": "DULIEUTHO.csv",
+      "hanh_dong": "LOAI_DONG",
+      "so_su_kien": 7
+    },
+    {
+      "nguon_tep": "DULIEUTHO.csv",
+      "hanh_dong": "SUA_O",
+      "so_su_kien": 1797
+    }
+  ],
+  "excluded": {
+    "cua_hang": [
+      "AOV_co_so_VND",
+      "don_co_so",
+      "khac_co_so_VND",
+      "khau_hao_VND",
+      "luong_co_so_VND",
+      "thue_co_so_VND",
+      "ty_le_gia_von",
+      "ty_le_nen_tang",
+      "ty_le_online_rieng"
+    ],
+    "van_hanh": [
+      "LN_van_hanh_mo_hinh",
+      "bien_LN_van_hanh",
+      "gia_von_VND",
+      "khac_VND",
+      "khau_hao_VND",
+      "loi_nhuan_gop",
+      "luong_VND",
+      "phi_nen_tang_VND",
+      "phi_nhuong_quyen_VND",
+      "thue_VND",
+      "ty_le_gia_von",
+      "ty_le_nhuong_quyen",
+      "ty_le_phi_nen_tang"
+    ]
+  },
+  "source_sha256": {
+    "02_KFC_TPHCM_cua_hang_mo_phong.csv": "15d62cfc437127ebda23125ed6c74eff0227f46392ca19296308cfb4e9ebd310",
+    "DULIEUTHO.csv": "eb37afd8c4daf9e85b25d65ae3e02b153a96c5f0f8197fdfcd50e4f8f9536473"
+  },
+  "checks": {
+    "unique_keys": true,
+    "complete_expected_months": true,
+    "sales_formulas": true,
+    "nonnegative_counts": true,
+    "no_cost_or_profit_columns": true,
+    "no_missing_clean_cells": true
+  },
+  "outputs": [
+    {
+      "file": "CUAHANG_THO.csv",
+      "rows": 29,
+      "columns": 7,
+      "sha256": "6e4e147d82b2041c69af8baf9e9909d6a158adde882effa3739d0d9ee5213d3a"
+    },
+    {
+      "file": "CUAHANG_SACH.csv",
+      "rows": 20,
+      "columns": 7,
+      "sha256": "97426be692eea13d13cf713bec904f65b2825dfa0721a3c8036d68e863992748"
+    },
+    {
+      "file": "DULIEUTHO.csv",
+      "rows": 597,
+      "columns": 22,
+      "sha256": "b5c58874e03c4dde0f6061f47c9e60dfb7ef626186cbf6210f4154c45faf80d9"
+    },
+    {
+      "file": "DULIEUSACH.csv",
+      "rows": 576,
+      "columns": 22,
+      "sha256": "acc4a95a95c0e743b9efbd8fa68051ebddc347cc04ab25a6e91a6190c401e8a7"
+    },
+    {
+      "file": "MENU_CONGKHAI_THO.csv",
+      "rows": 8,
+      "columns": 8,
+      "sha256": "63c5c1a0f79beb2043d1695f864c9b9ae1661d250aec3e4f3b9fc2e18720b6a0"
+    },
+    {
+      "file": "MENU_CONGKHAI_SACH.csv",
+      "rows": 8,
+      "columns": 9,
+      "sha256": "02128e7d39d156ab9208a28709e217cefcce7d1829f4b94ea69dff3f094691bd"
+    },
+    {
+      "file": "NHATKY_LAMSACH.csv",
+      "rows": 1861,
+      "columns": 7,
+      "sha256": "a5e1acbaa282c2b6802d8693348b8e85d987e197bfef44fae74a3cde799c6f11"
+    },
+    {
+      "file": "TUDIEN_DULIEU.csv",
+      "rows": 82,
+      "columns": 5,
+      "sha256": "4ba6017d803f777fbaf5cfeaec69b904bbb2c259996aecb2febec2e9ce0d93cd"
+    }
+  ],
+  "cap_nhat": {
+    "ngay": "2026-10-11",
+    "noi_dung": "Bỏ cột ban_chat trùng lặp khỏi 6 CSV và cập nhật từ điển. Giữ nhãn nguồn loai_du_lieu và các mô tả nguồn gốc.",
+    "gia_tri_con_lai_giu_nguyen": true
+  }
+}

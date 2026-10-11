@@ -1,0 +1,83 @@
+﻿﻿tep,cot,kieu_sach,ban_chat_truong,y_nghia
+CUAHANG_THO.csv,store_id,chuoi,MO_PHONG,"Mã cửa hàng mô phỏng, không ánh xạ sang cửa hàng KFC thật"
+CUAHANG_THO.csv,thanh_pho,chuoi,MO_PHONG,Phạm vi thành phố của kịch bản
+CUAHANG_THO.csv,ngay_mo,ngay,MO_PHONG,"Ngày mở giả định trong nguồn, không phải khai trương được kiểm chứng"
+CUAHANG_THO.csv,loai_du_lieu,chuoi,TRUY_VET,Nhãn trong nguồn; có thể lỗi/thiếu ở bản thô
+CUAHANG_THO.csv,phien_ban,chuoi,TRUY_VET,Phiên bản mô phỏng nguồn
+CUAHANG_THO.csv,nguon_tep,chuoi,TRUY_VET,Tệp DataGoc đã đọc
+CUAHANG_THO.csv,nguon_dong,so_nguyen,TRUY_VET,"Dòng CSV gốc, tính dòng tiêu đề là 1"
+CUAHANG_SACH.csv,store_id,chuoi,MO_PHONG,"Mã cửa hàng mô phỏng, không ánh xạ sang cửa hàng KFC thật"
+CUAHANG_SACH.csv,thanh_pho,chuoi,MO_PHONG,Phạm vi thành phố của kịch bản
+CUAHANG_SACH.csv,ngay_mo,ngay,MO_PHONG,"Ngày mở giả định trong nguồn, không phải khai trương được kiểm chứng"
+CUAHANG_SACH.csv,loai_du_lieu,chuoi,TRUY_VET,Nhãn trong nguồn; có thể lỗi/thiếu ở bản thô
+CUAHANG_SACH.csv,phien_ban,chuoi,TRUY_VET,Phiên bản mô phỏng nguồn
+CUAHANG_SACH.csv,nguon_tep,chuoi,TRUY_VET,Tệp DataGoc đã đọc
+CUAHANG_SACH.csv,nguon_dong,so_nguyen,TRUY_VET,"Dòng CSV gốc, tính dòng tiêu đề là 1"
+DULIEUTHO.csv,thang,ngay,MO_PHONG,"Tháng bán hàng mô phỏng, chuẩn YYYY-MM-01"
+DULIEUTHO.csv,nam,so_nguyen,SUY_RA,Năm suy từ tháng sau làm sạch
+DULIEUTHO.csv,quy,so_nguyen,SUY_RA,Quý suy từ tháng sau làm sạch
+DULIEUTHO.csv,store_id,chuoi,MO_PHONG,"Mã cửa hàng mô phỏng, không ánh xạ sang cửa hàng KFC thật"
+DULIEUTHO.csv,thanh_pho,chuoi,MO_PHONG,Phạm vi thành phố của kịch bản
+DULIEUTHO.csv,don_tai_quan,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh tai_quan
+DULIEUTHO.csv,don_nen_tang,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh nen_tang
+DULIEUTHO.csv,don_online_rieng,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh online_rieng
+DULIEUTHO.csv,AOV_tai_quan,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh tai_quan, đồng/đơn"
+DULIEUTHO.csv,AOV_nen_tang,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh nen_tang, đồng/đơn"
+DULIEUTHO.csv,AOV_online_rieng,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh online_rieng, đồng/đơn"
+DULIEUTHO.csv,DT_tai_quan,so,TINH_TU_MO_PHONG,"don_tai_quan × AOV_tai_quan, đồng; tính lại ở bản sạch"
+DULIEUTHO.csv,DT_nen_tang,so,TINH_TU_MO_PHONG,"don_nen_tang × AOV_nen_tang, đồng; tính lại ở bản sạch"
+DULIEUTHO.csv,DT_online_rieng,so,TINH_TU_MO_PHONG,"don_online_rieng × AOV_online_rieng, đồng; tính lại ở bản sạch"
+DULIEUTHO.csv,DT_tong,so,TINH_TU_MO_PHONG,"Tổng doanh thu ba kênh mô phỏng, đồng"
+DULIEUTHO.csv,tong_don,so_nguyen,TINH_TU_MO_PHONG,Tổng số đơn ba kênh mô phỏng
+DULIEUTHO.csv,AOV_tong,so,TINH_TU_MO_PHONG,Tổng doanh thu / tổng đơn; không phải trung bình ba AOV
+DULIEUTHO.csv,ty_trong_DT_online,so,TINH_TU_MO_PHONG,(DT_nen_tang + DT_online_rieng) / DT_tong; tỷ lệ 0–1
+DULIEUTHO.csv,loai_du_lieu,chuoi,TRUY_VET,Nhãn trong nguồn; có thể lỗi/thiếu ở bản thô
+DULIEUTHO.csv,phien_ban,chuoi,TRUY_VET,Phiên bản mô phỏng nguồn
+DULIEUTHO.csv,nguon_tep,chuoi,TRUY_VET,Tệp DataGoc đã đọc
+DULIEUTHO.csv,nguon_dong,so_nguyen,TRUY_VET,"Dòng CSV gốc, tính dòng tiêu đề là 1"
+DULIEUSACH.csv,thang,ngay,MO_PHONG,"Tháng bán hàng mô phỏng, chuẩn YYYY-MM-01"
+DULIEUSACH.csv,nam,so_nguyen,SUY_RA,Năm suy từ tháng sau làm sạch
+DULIEUSACH.csv,quy,so_nguyen,SUY_RA,Quý suy từ tháng sau làm sạch
+DULIEUSACH.csv,store_id,chuoi,MO_PHONG,"Mã cửa hàng mô phỏng, không ánh xạ sang cửa hàng KFC thật"
+DULIEUSACH.csv,thanh_pho,chuoi,MO_PHONG,Phạm vi thành phố của kịch bản
+DULIEUSACH.csv,don_tai_quan,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh tai_quan
+DULIEUSACH.csv,don_nen_tang,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh nen_tang
+DULIEUSACH.csv,don_online_rieng,so_nguyen,MO_PHONG,Số đơn mô phỏng kênh online_rieng
+DULIEUSACH.csv,AOV_tai_quan,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh tai_quan, đồng/đơn"
+DULIEUSACH.csv,AOV_nen_tang,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh nen_tang, đồng/đơn"
+DULIEUSACH.csv,AOV_online_rieng,so,MO_PHONG,"Giá trị đơn trung bình mô phỏng kênh online_rieng, đồng/đơn"
+DULIEUSACH.csv,DT_tai_quan,so,TINH_TU_MO_PHONG,"don_tai_quan × AOV_tai_quan, đồng; tính lại ở bản sạch"
+DULIEUSACH.csv,DT_nen_tang,so,TINH_TU_MO_PHONG,"don_nen_tang × AOV_nen_tang, đồng; tính lại ở bản sạch"
+DULIEUSACH.csv,DT_online_rieng,so,TINH_TU_MO_PHONG,"don_online_rieng × AOV_online_rieng, đồng; tính lại ở bản sạch"
+DULIEUSACH.csv,DT_tong,so,TINH_TU_MO_PHONG,"Tổng doanh thu ba kênh mô phỏng, đồng"
+DULIEUSACH.csv,tong_don,so_nguyen,TINH_TU_MO_PHONG,Tổng số đơn ba kênh mô phỏng
+DULIEUSACH.csv,AOV_tong,so,TINH_TU_MO_PHONG,Tổng doanh thu / tổng đơn; không phải trung bình ba AOV
+DULIEUSACH.csv,ty_trong_DT_online,so,TINH_TU_MO_PHONG,(DT_nen_tang + DT_online_rieng) / DT_tong; tỷ lệ 0–1
+DULIEUSACH.csv,loai_du_lieu,chuoi,TRUY_VET,Nhãn trong nguồn; có thể lỗi/thiếu ở bản thô
+DULIEUSACH.csv,phien_ban,chuoi,TRUY_VET,Phiên bản mô phỏng nguồn
+DULIEUSACH.csv,nguon_tep,chuoi,TRUY_VET,Tệp DataGoc đã đọc
+DULIEUSACH.csv,nguon_dong,so_nguyen,TRUY_VET,"Dòng CSV gốc, tính dòng tiêu đề là 1"
+MENU_CONGKHAI_THO.csv,ma_mau_thu_thap,chuoi,TRUY_VET,"Mã WEB tự đặt để theo dõi mẫu, không phải mã sản phẩm chính thức"
+MENU_CONGKHAI_THO.csv,ten_mon_goc,chuoi,CONG_KHAI,Tên món giữ theo nội dung thu thập
+MENU_CONGKHAI_THO.csv,nhom_mon_goc,chuoi,CONG_KHAI,Nhóm thực đơn theo trang nguồn
+MENU_CONGKHAI_THO.csv,gia_hien_thi_goc,chuoi,CONG_KHAI,Chuỗi giá niêm yết giữ dấu phân cách và ký hiệu tiền
+MENU_CONGKHAI_THO.csv,nguon_url,chuoi,TRUY_VET,Đường dẫn trang chính thức
+MENU_CONGKHAI_THO.csv,ngay_tra_cuu,ngay,TRUY_VET,"Ngày tra cứu, không xác nhận ngày bắt đầu hiệu lực của giá"
+MENU_CONGKHAI_THO.csv,phuong_thuc,chuoi,TRUY_VET,Tra cứu nội dung chính thức được công cụ tìm kiếm lập chỉ mục; không phải xác nhận ở màn hình thanh toán
+MENU_CONGKHAI_THO.csv,pham_vi,chuoi,TRUY_VET,"Mẫu 8 món, không đầy đủ; chưa chọn cửa hàng cụ thể"
+MENU_CONGKHAI_SACH.csv,ma_mau_thu_thap,chuoi,TRUY_VET,"Mã WEB tự đặt để theo dõi mẫu, không phải mã sản phẩm chính thức"
+MENU_CONGKHAI_SACH.csv,ten_mon,chuoi,CONG_KHAI,Tên món công khai đã chuẩn hóa
+MENU_CONGKHAI_SACH.csv,nhom_mon,chuoi,CONG_KHAI,Nhóm thực đơn công khai
+MENU_CONGKHAI_SACH.csv,gia_niem_yet_VND,so_nguyen,CONG_KHAI,Giá hiển thị chuyển thành số VND; không phải giá thanh toán tại mọi cửa hàng
+MENU_CONGKHAI_SACH.csv,don_vi_tien,chuoi,CONG_KHAI,VND
+MENU_CONGKHAI_SACH.csv,nguon_url,chuoi,TRUY_VET,Đường dẫn trang chính thức
+MENU_CONGKHAI_SACH.csv,ngay_tra_cuu,ngay,TRUY_VET,"Ngày tra cứu, không xác nhận ngày bắt đầu hiệu lực của giá"
+MENU_CONGKHAI_SACH.csv,phuong_thuc,chuoi,TRUY_VET,Tra cứu nội dung chính thức được công cụ tìm kiếm lập chỉ mục; không phải xác nhận ở màn hình thanh toán
+MENU_CONGKHAI_SACH.csv,pham_vi,chuoi,TRUY_VET,"Mẫu 8 món, không đầy đủ; chưa chọn cửa hàng cụ thể"
+NHATKY_LAMSACH.csv,nguon_tep,chuoi,TRUY_VET,Tệp DataGoc đã đọc
+NHATKY_LAMSACH.csv,nguon_dong,so_nguyen,TRUY_VET,"Dòng CSV gốc, tính dòng tiêu đề là 1"
+NHATKY_LAMSACH.csv,cot,chuoi,NHAT_KY,"Cột được xử lý, * là toàn dòng"
+NHATKY_LAMSACH.csv,gia_tri_cu,chuoi,NHAT_KY,Giá trị trước xử lý
+NHATKY_LAMSACH.csv,gia_tri_moi,chuoi,NHAT_KY,Giá trị sau xử lý
+NHATKY_LAMSACH.csv,quy_tac,chuoi,NHAT_KY,Quy tắc xử lý
+NHATKY_LAMSACH.csv,hanh_dong,chuoi,NHAT_KY,"SUA_O, LOAI_DONG hoặc BO_TRUNG"
