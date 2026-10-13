@@ -50,3 +50,8 @@ Dim_Menu, Dim_Store, Dim_Date lọc một chiều tới Fact_Menu; không nối 
 Doanh thu = tổng đơn × AOV từng kênh. LN vận hành = doanh thu − giá vốn − phí nền tảng − nhượng quyền − lương − thuê − khác − khấu hao. AOV, biên lợi nhuận và tỷ trọng online tính bằng tỷ số các tổng. Cửa hàng bình quân = cửa hàng–tháng / số tháng.
 
 YoY so cùng kỳ năm trước; CAGR dùng tổng năm đủ 12 tháng và khoảng cách năm cuối−đầu. SSSG dùng cùng tập cửa hàng có đủ 12 tháng ở cả hai năm. Mẫu số 0 hoặc thiếu kỳ trước thì để trống. Không tính thị phần, biên ròng hoặc ROA/ROE vì thiếu nguồn tương ứng.
+
+
+## Quy mô mở rộng 50 cửa hàng
+
+Giữ nguyên 20 cửa hàng ban đầu; bổ sung SIM021–SIM050 trên 10 địa bàn còn thiếu. Tổng cộng 19 quận cũ, 50 cửa hàng năm 2025. Các năm 2023/2024 lần lượt có 30/42 cửa hàng; đủ 1.464 cửa hàng–tháng. Bộ sinh mở rộng có seed cố định 20261007; giữ nguyên lỗi/trùng mô phỏng trong nguồn ban đầu. Nguồn vận hành và store vẫn là hai CSV cũ. Pipeline tính lại dữ liệu sạch, dimension/fact và mọi KPI; Fact_Menu 35.136 dòng đối chiếu từng cửa hàng–tháng–kênh. Tên quận là nhãn lịch sử, không phải địa giới hiện hành.

@@ -1,12 +1,12 @@
 # HỆ THỐNG PHÂN TÍCH DOANH THU KFC TP.HCM
 
-MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.
+DỮ LIỆU MÔ PHỎNG
 
 ## 1. Mục tiêu và phạm vi
 
 Thiết kế hệ thống phân tích doanh thu KFC tại TP.HCM theo tài liệu THIẾT KẾ HỆ THỐNG.docx: quản lý nguồn → làm sạch bằng Pandas → tính KPI → cung cấp dữ liệu Power BI → báo cáo và đề xuất.
 
-Nguồn cửa hàng: 02_KFC_TPHCM_cua_hang_mo_phong.csv. Nguồn vận hành: DULIEUTHO.csv. Phạm vi 2023-01-01 đến 2025-12-01; 576 bản ghi cửa hàng–tháng, 20 cửa hàng hư cấu.
+Nguồn cửa hàng: 02_KFC_TPHCM_cua_hang_mo_phong.csv. Nguồn vận hành: DULIEUTHO.csv. Phạm vi 2023-01-01 đến 2025-12-01; 1464 bản ghi cửa hàng–tháng, 50 cửa hàng hư cấu.
 
 Nguồn vận hành DULIEUTHO.csv là CSV UTF-8 đúng định dạng, chuyển từ dữ liệu Excel được cung cấp. Hai nguồn thô có lỗi mô phỏng để thực hành làm sạch; không lấy KPI có sẵn làm nguồn.
 
@@ -16,11 +16,11 @@ Pipeline đọc hai nguồn thô trong DataGoc. DataSach/DULIEUSACH.csv là mộ
 
 Mỗi dòng Fact_Operation là một cửa hàng trong một tháng; khóa ghép store_id + thang. Fact_Channel có thêm khóa kenh. Chiều thời gian liên tục theo ngày, quan hệ một–nhiều, lọc một chiều từ dimension sang fact.
 
-Nguồn có 29 dòng cửa hàng và 597 dòng vận hành. Loại 4 + 12 dòng trùng và 5 + 9 dòng lỗi không thể phục hồi. Xem nhat_ky_lam_sach.csv và dong_bi_loai.csv.
+Nguồn có 59 dòng cửa hàng và 1485 dòng vận hành. Loại 4 + 12 dòng trùng và 5 + 9 dòng lỗi không thể phục hồi. Xem nhat_ky_lam_sach.csv và dong_bi_loai.csv.
 
 CSV ngày nguồn dùng tháng/ngày/năm, chuẩn hóa thành YYYY-MM-DD. Tiền là VND; tỷ lệ lưu 0–1. Tính lại doanh thu = số đơn × AOV từng kênh; đối chiếu với cột có sẵn, dung sai 1 VND và 1e-8 cho tỷ lệ do làm tròn nguồn.
 
-Chất lượng sau làm sạch: DAT. Đối chiếu 576 dòng sạch; cột dẫn xuất sai hoặc thiếu được tính lại từ số đơn, AOV và chi phí. Có 661 lượt sửa/chuẩn hóa ô có nhật ký; không điền số 0 thay cho dữ liệu thiếu.
+Chất lượng sau làm sạch: DAT. Đối chiếu 1464 dòng sạch; cột dẫn xuất sai hoặc thiếu được tính lại từ số đơn, AOV và chi phí. Có 1579 lượt sửa/chuẩn hóa ô có nhật ký; không điền số 0 thay cho dữ liệu thiếu.
 
 ## 3. Định nghĩa KPI
 
@@ -36,15 +36,15 @@ SSSG chỉ so cùng tập cửa hàng có đủ 12 tháng ở cả hai năm. Thi
 
 ## 4. Kết quả mô phỏng năm 2025
 
-Doanh thu 146,39 tỷ VND; 1.210.478 đơn; cửa hàng bình quân 20; doanh thu/cửa hàng 7,32 tỷ VND/năm.
+Doanh thu 377,14 tỷ VND; 3.104.051 đơn; cửa hàng bình quân 50; doanh thu/cửa hàng 7,54 tỷ VND/năm.
 
-Lợi nhuận vận hành mô hình 18,61 tỷ VND; biên vận hành 12,71%; AOV 120.932 VND/đơn; tỷ trọng doanh thu online 41,96%.
+Lợi nhuận vận hành mô hình 57,65 tỷ VND; biên vận hành 15,29%; AOV 121.499 VND/đơn; tỷ trọng doanh thu online 41,30%.
 
-YoY doanh thu: 25,43%. CAGR toàn khoảng đủ năm: 36,44%. Tăng trưởng cùng cửa hàng: 8,46%.
+YoY doanh thu: 23,41%. CAGR toàn khoảng đủ năm: 39,15%. Tăng trưởng cùng cửa hàng: 9,26%.
 
-Tháng có doanh thu cao nhất năm: 12/2025, đạt 13,59 tỷ VND. Cửa hàng đóng góp doanh thu cao nhất: SIM005, đạt 10,71 tỷ VND.
+Tháng có doanh thu cao nhất năm: 06/2025, đạt 33,80 tỷ VND. Cửa hàng đóng góp doanh thu cao nhất: SIM025, đạt 12,59 tỷ VND.
 
-Có 5 cửa hàng lỗ vận hành cả năm. Biên vận hành thấp nhất: SIM020 (-41,91%). Đây là tín hiệu mô tả, chưa chứng minh nguyên nhân.
+Có 8 cửa hàng lỗ vận hành cả năm. Biên vận hành thấp nhất: SIM020 (-41,91%). Đây là tín hiệu mô tả, chưa chứng minh nguyên nhân.
 
 ## 5. Định hướng quyết định trong bài mô phỏng
 
@@ -71,4 +71,3 @@ Chưa xác minh cơ sở doanh thu gộp/thuần và thuế VAT của mô hình.
 Bộ nguồn không có ngày đóng cửa hay quận/huyện; giả định cửa hàng hoạt động liên tục từ tháng mở. Khi có đóng cửa hoặc hoạt động giữa tháng cần mở rộng mô hình và quy tắc tính cửa hàng bình quân.
 
 Doanh thu tăng, nếu có, chưa đủ kết luận hiệu quả kinh doanh. Cần đối chiếu doanh thu/cửa hàng, biên vận hành, cùng tập cửa hàng và thị trường có phạm vi tương đương.
-

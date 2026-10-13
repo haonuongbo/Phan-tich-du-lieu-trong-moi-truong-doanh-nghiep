@@ -1,6 +1,6 @@
 {
   "nhan_du_lieu": "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.",
-  "tao_luc_UTC": "2026-10-06T15:20:46.317835+00:00",
+  "tao_luc_UTC": "2026-10-07T01:44:14.590185+00:00",
   "nguon_chinh": [
     "02_KFC_TPHCM_cua_hang_mo_phong.csv",
     "DULIEUTHO.csv"
@@ -9,33 +9,33 @@
   "nguon": [
     {
       "tep": "02_KFC_TPHCM_cua_hang_mo_phong.csv",
-      "sha256": "15d62cfc437127ebda23125ed6c74eff0227f46392ca19296308cfb4e9ebd310"
+      "sha256": "a016b1e15a53d5d7f5260cfb8f79da1f3bf83f3bf3107a981f7a9087a4c1e1c7"
     },
     {
       "tep": "DULIEUTHO.csv",
-      "sha256": "eb37afd8c4daf9e85b25d65ae3e02b153a96c5f0f8197fdfcd50e4f8f9536473"
+      "sha256": "bde0568589c059e16146782d5dca9ada9e6edd129062310b8ce891f223d27e2d"
     }
   ],
   "bang_xuat": {
-    "Dim_Store": 20,
+    "Dim_Store": 50,
     "Dim_Date": 1096,
-    "Fact_Operation": 576,
-    "Fact_Channel": 1728,
+    "Fact_Operation": 1464,
+    "Fact_Channel": 4392,
     "KPI_Thang": 36,
     "KPI_Quy": 12,
     "KPI_Nam": 3,
-    "KPI_CuaHang_Nam": 48,
+    "KPI_CuaHang_Nam": 122,
     "KPI_TongQuan": 1,
     "Dim_Menu": 8,
-    "Fact_Menu": 13824,
+    "Fact_Menu": 35136,
     "KPI_Mon_Nam": 24,
     "KPI_NhomMon_Nam": 12,
-    "KPI_KhuVuc_Nam": 27,
+    "KPI_KhuVuc_Nam": 57,
     "KPI_LoaiViTri_Nam": 12
   },
   "gia_dinh_menu_khu_vuc": {
     "tep": "Script/gia_dinh_menu_khu_vuc.json",
-    "sha256": "e8eeb97f9d1734975eb854ee352d18ecac18698192f4711ed2314c83dadc05ee",
+    "sha256": "42b30b754169a62141eba5eaa5c71748bd5599f8f9d993dc42bbefeab1cc02c0",
     "canh_bao": "Các món, số lượng và vị trí được giả định, không được suy ra từ nguồn 02 + DULIEUTHO."
   }
 }

@@ -57,17 +57,17 @@
     }
   },
   "van_hanh_trung_hoan_toan_da_bo": 12,
-  "so_dong_nguon_cua_hang": 29,
-  "so_dong_nguon": 597,
+  "so_dong_nguon_cua_hang": 59,
+  "so_dong_nguon": 1485,
   "nguon_van_hanh": "DULIEUTHO.csv",
   "so_dong_loi_cua_hang": 5,
   "so_dong_loi_van_hanh": 9,
-  "so_o_da_sua": 661,
-  "so_dong_sach": 576,
-  "so_cua_hang": 20,
+  "so_o_da_sua": 1579,
+  "so_dong_sach": 1464,
+  "so_cua_hang": 50,
   "so_thang": 36,
   "tu_thang": "2023-01-01",
   "den_thang": "2025-12-01",
-  "so_dong_doi_chieu_cong_thuc": 576,
+  "so_dong_doi_chieu_cong_thuc": 1464,
   "phan_tich_menu_khu_vuc": "Kịch bản phân bổ giả định; không phải giao dịch POS, sở thích khách hàng hoặc vị trí thực tế."
 }
