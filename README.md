@@ -77,3 +77,10 @@ Nguồn hiện có không chứa POS theo món hoặc địa chỉ. `Script/gia_
 - Đặt lại xóa toàn bộ bộ lọc/tìm kiếm và khôi phục thứ tự mặc định. Xuất CSV giữ bộ lọc chung và bộ lọc riêng của trang hiện tại. Lọc riêng tại bảng không thay đổi KPI phía trên, như chú thích trên trang.
 
 Chuỗi 2023–2025 hiện tính được YoY 2024/2025, CAGR và cùng tập cửa hàng. Năm đầu không có YoY. AOV và biên lợi nhuận là tỷ số của tổng. Lợi nhuận là vận hành mô hình, chưa phải lợi nhuận ròng. Chưa có dữ liệu thị trường, khách hàng định danh hoặc ngày đóng cửa; giả định hoạt động liên tục từ tháng mở.
+
+
+## Mở rộng 50 cửa hàng
+
+Bộ dữ liệu hiện có 50 cửa hàng trên 19 địa bàn quận cũ của TP.HCM, gồm Quận 2, Quận 9 và Thủ Đức theo tên trước sáp nhập. Không sử dụng các nhãn này như địa giới hiện hành. Không mở rộng sang các huyện. Dữ liệu bổ sung là mô phỏng, 20 cửa hàng ban đầu giữ nguyên. Có 30 cửa hàng hoạt động năm 2023, 42 năm 2024 và 50 năm 2025; 1.464 bản ghi cửa hàng–tháng. Nguồn thô vẫn chứa các lỗi và dòng trùng của bộ ban đầu.
+
+Mã hiển thị: Q1–Q12 cho quận số; BT = Bình Thạnh, TB = Tân Bình, TP = Tân Phú, PN = Phú Nhuận, BTA = Bình Tân, GV = Gò Vấp, TD = Thủ Đức. Mỗi quận đánh số _01, _02…; khóa nguồn SIM được giữ để đối chiếu. Chạy Script/Main.py để làm sạch/tính lại; Script/expand_stores.py là bộ sinh mở rộng cố định seed 20261007 và không thêm trùng khi nguồn đã có 50 cửa hàng. Dashboard và CSV/KPI đã cập nhật; Word/PowerPoint trước đây thuộc bộ 20 cửa hàng, chưa cập nhật trong lần mở rộng dashboard này.

@@ -25,7 +25,7 @@ class CleaningTests(unittest.TestCase):
         cls.tables = build_tables(cls.stores, cls.fact)
 
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
+        self.tmp = tempfile.TemporaryDirectory(dir=ROOT / 'Tests')
         self.addCleanup(self.tmp.cleanup)
         self.project = Path(self.tmp.name)
         self.raw = self.project / "DataGoc"
@@ -43,13 +43,16 @@ class CleaningTests(unittest.TestCase):
         operation(frame).to_csv(path, index=False, encoding="utf-8-sig")
 
     def test_dirty_sources_clean_back_to_business_controls(self):
-        self.assertEqual(len(self.stores), 20)
-        self.assertEqual(len(self.fact), 576)
-        expected = {2023: 78631832128, 2024: 116703907795, 2025: 146385764418}
+        self.assertEqual(len(self.stores), 50)
+        original=self.fact[self.fact.store_id.le("SIM020")]
+        self.assertEqual(original.groupby("nam").DT_tong.sum().to_dict(), {2023:78631832128,2024:116703907795,2025:146385764418})
+        self.assertEqual(len(original),576)
+        self.assertEqual(len(self.fact), 1464)
+        expected = {2023: 194776037018, 2024: 305587095990, 2025: 377138563793}
         self.assertEqual(self.fact.groupby("nam").DT_tong.sum().to_dict(), expected)
-        self.assertEqual(self.fact.tong_don.sum(), 2875801)
-        self.assertEqual(self.quality["so_dong_nguon_cua_hang"], 29)
-        self.assertEqual(self.quality["so_dong_nguon"], 597)
+        self.assertEqual(self.fact.tong_don.sum(), 7345418)
+        self.assertEqual(self.quality["so_dong_nguon_cua_hang"], 59)
+        self.assertEqual(self.quality["so_dong_nguon"], 1485)
         self.assertEqual(self.quality["cua_hang_trung_hoan_toan_da_bo"], 4)
         self.assertEqual(self.quality["van_hanh_trung_hoan_toan_da_bo"], 12)
         self.assertEqual(self.quality["so_dong_loi_cua_hang"], 5)
@@ -64,7 +67,7 @@ class CleaningTests(unittest.TestCase):
         run(self.project)
         self.assertEqual([p.name for p in (self.project / "DataSach").iterdir()], ["DULIEUSACH.csv"])
         unified = pd.read_csv(self.project / "DataSach/DULIEUSACH.csv", encoding="utf-8-sig")
-        self.assertEqual(len(unified), 576)
+        self.assertEqual(len(unified), 1464)
         self.assertTrue({"ngay_mo", "DT_tong", "AOV_co_so_VND", "ty_le_gia_von_co_so"} <= set(unified))
         for name, digest in before.items():
             self.assertEqual(hashlib.sha256((self.raw / name).read_bytes()).hexdigest(), digest)
@@ -104,17 +107,17 @@ class CleaningTests(unittest.TestCase):
     def test_yearly_growth_and_cagr_now_available(self):
         annual = self.tables["KPI_Nam"].set_index("nam")
         self.assertTrue(pd.isna(annual.loc[2023, "YoY_doanh_thu"]))
-        self.assertAlmostEqual(annual.loc[2024, "YoY_doanh_thu"], 116703907795 / 78631832128 - 1)
-        self.assertAlmostEqual(annual.loc[2025, "YoY_doanh_thu"], 146385764418 / 116703907795 - 1)
+        self.assertAlmostEqual(annual.loc[2024, "YoY_doanh_thu"], 305587095990 / 194776037018 - 1)
+        self.assertAlmostEqual(annual.loc[2025, "YoY_doanh_thu"], 377138563793 / 305587095990 - 1)
         self.assertAlmostEqual(self.tables["KPI_TongQuan"].iloc[0].CAGR_doanh_thu,
-                               (146385764418 / 78631832128) ** .5 - 1)
-        self.assertEqual(annual.loc[2024, "so_CH_tuong_duong"], 12)
-        self.assertEqual(annual.loc[2025, "so_CH_tuong_duong"], 16)
+                               (377138563793 / 194776037018) ** .5 - 1)
+        self.assertEqual(annual.loc[2024, "so_CH_tuong_duong"], 30)
+        self.assertEqual(annual.loc[2025, "so_CH_tuong_duong"], 42)
 
     def test_aggregation_and_weighted_ratios(self):
         for name in ["KPI_Thang", "KPI_Quy", "KPI_Nam", "KPI_CuaHang_Nam"]:
-            self.assertEqual(self.tables[name].DT_tong.sum(), 341721504341)
-        self.assertEqual(self.tables["Fact_Channel"].doanh_thu.sum(), 341721504341)
+            self.assertEqual(self.tables[name].DT_tong.sum(), 877501696801)
+        self.assertEqual(self.tables["Fact_Channel"].doanh_thu.sum(), 877501696801)
         self.assertEqual(len(self.tables["Dim_Date"]), 1096)
         frame = self.fact.iloc[:2].copy()
         frame["DT_tong"], frame["tong_don"], frame["LN_van_hanh_mo_hinh"] = [100,900], [10,30], [50,90]
@@ -127,7 +130,7 @@ class CleaningTests(unittest.TestCase):
         quality = {}
         _, frame = load_clean(self.raw, quality)
         self.assertEqual(quality["van_hanh_trung_hoan_toan_da_bo"], 1)
-        self.assertEqual(frame.DT_tong.sum(), 341721504341)
+        self.assertEqual(frame.DT_tong.sum(), 877501696801)
 
     def test_conflicting_business_duplicate_rejected(self):
         def edit(frame):
@@ -153,7 +156,7 @@ class CleaningTests(unittest.TestCase):
         self.edit(edit)
         quality = {}
         _, fact = load_clean(self.raw, quality)
-        self.assertEqual(fact.DT_tong.sum(), 341721504341)
+        self.assertEqual(fact.DT_tong.sum(), 877501696801)
         self.assertEqual(fact.iloc[0].nam, 2023)
         self.assertGreater(quality["doi_chieu_cong_thuc"]["DT_tong"]["so_dong_vuot_dung_sai"], 0)
 
@@ -164,7 +167,7 @@ class CleaningTests(unittest.TestCase):
             return frame
         self.edit(edit)
         _, fact = load_clean(self.raw, {})
-        self.assertEqual(fact.DT_tong.sum(), 341721504341)
+        self.assertEqual(fact.DT_tong.sum(), 877501696801)
         def missing_both(frame):
             frame.loc[0, ["DT_tai_quan", "AOV_tai_quan"]] = ["ERROR", "ERROR"]
             return frame

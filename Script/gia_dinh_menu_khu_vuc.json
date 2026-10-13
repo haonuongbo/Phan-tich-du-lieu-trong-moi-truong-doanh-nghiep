@@ -1,31 +1,286 @@
 {
   "ghi_chu": "Kịch bản học tập, không phải menu/giá KFC hiện hành hoặc địa chỉ cửa hàng thật. Tên khu vực dùng để mô tả địa bàn quen thuộc, không phải danh mục đơn vị hành chính hiện hành. Trọng số chọn chủ quan; số lượng ước tính bằng doanh thu phân bổ / giá tham chiếu rồi làm tròn. Combo là sản phẩm trọn gói, không đếm lại thành phần vào nhóm khác. Giao hàng tăng trọng số combo 1,2 lần. Không có khảo sát khách hàng.",
   "menu": [
-    {"menu_id":"M01","ten_mon":"Gà rán truyền thống (1 phần)","nhom_mon":"Gà","gia_tham_chieu_VND":45000},
-    {"menu_id":"M02","ten_mon":"Gà sốt cay (1 phần)","nhom_mon":"Gà","gia_tham_chieu_VND":50000},
-    {"menu_id":"M03","ten_mon":"Burger gà","nhom_mon":"Burger và cơm","gia_tham_chieu_VND":45000},
-    {"menu_id":"M04","ten_mon":"Cơm gà","nhom_mon":"Burger và cơm","gia_tham_chieu_VND":50000},
-    {"menu_id":"M05","ten_mon":"Combo một người","nhom_mon":"Combo","gia_tham_chieu_VND":90000},
-    {"menu_id":"M06","ten_mon":"Combo nhóm","nhom_mon":"Combo","gia_tham_chieu_VND":220000},
-    {"menu_id":"M07","ten_mon":"Khoai tây chiên","nhom_mon":"Món phụ và đồ uống","gia_tham_chieu_VND":25000},
-    {"menu_id":"M08","ten_mon":"Nước giải khát","nhom_mon":"Món phụ và đồ uống","gia_tham_chieu_VND":15000}
+    {
+      "menu_id": "M01",
+      "ten_mon": "Gà rán truyền thống (1 phần)",
+      "nhom_mon": "Gà",
+      "gia_tham_chieu_VND": 45000
+    },
+    {
+      "menu_id": "M02",
+      "ten_mon": "Gà sốt cay (1 phần)",
+      "nhom_mon": "Gà",
+      "gia_tham_chieu_VND": 50000
+    },
+    {
+      "menu_id": "M03",
+      "ten_mon": "Burger gà",
+      "nhom_mon": "Burger và cơm",
+      "gia_tham_chieu_VND": 45000
+    },
+    {
+      "menu_id": "M04",
+      "ten_mon": "Cơm gà",
+      "nhom_mon": "Burger và cơm",
+      "gia_tham_chieu_VND": 50000
+    },
+    {
+      "menu_id": "M05",
+      "ten_mon": "Combo một người",
+      "nhom_mon": "Combo",
+      "gia_tham_chieu_VND": 90000
+    },
+    {
+      "menu_id": "M06",
+      "ten_mon": "Combo nhóm",
+      "nhom_mon": "Combo",
+      "gia_tham_chieu_VND": 220000
+    },
+    {
+      "menu_id": "M07",
+      "ten_mon": "Khoai tây chiên",
+      "nhom_mon": "Món phụ và đồ uống",
+      "gia_tham_chieu_VND": 25000
+    },
+    {
+      "menu_id": "M08",
+      "ten_mon": "Nước giải khát",
+      "nhom_mon": "Món phụ và đồ uống",
+      "gia_tham_chieu_VND": 15000
+    }
   ],
   "trong_so_theo_vi_tri": {
-    "Văn phòng": {"Gà":0.25,"Burger và cơm":0.35,"Combo":0.25,"Món phụ và đồ uống":0.15},
-    "Trung tâm thương mại": {"Gà":0.25,"Burger và cơm":0.15,"Combo":0.45,"Món phụ và đồ uống":0.15},
-    "Khu dân cư": {"Gà":0.35,"Burger và cơm":0.20,"Combo":0.30,"Món phụ và đồ uống":0.15},
-    "Gần trường học": {"Gà":0.25,"Burger và cơm":0.35,"Combo":0.20,"Món phụ và đồ uống":0.20}
+    "Văn phòng": {
+      "Gà": 0.25,
+      "Burger và cơm": 0.35,
+      "Combo": 0.25,
+      "Món phụ và đồ uống": 0.15
+    },
+    "Trung tâm thương mại": {
+      "Gà": 0.25,
+      "Burger và cơm": 0.15,
+      "Combo": 0.45,
+      "Món phụ và đồ uống": 0.15
+    },
+    "Khu dân cư": {
+      "Gà": 0.35,
+      "Burger và cơm": 0.2,
+      "Combo": 0.3,
+      "Món phụ và đồ uống": 0.15
+    },
+    "Gần trường học": {
+      "Gà": 0.25,
+      "Burger và cơm": 0.35,
+      "Combo": 0.2,
+      "Món phụ và đồ uống": 0.2
+    }
   },
   "vi_tri": {
-    "SIM001":["Khu vực Quận 1","Văn phòng"], "SIM002":["Khu vực Quận 3","Văn phòng"],
-    "SIM003":["Khu vực Quận 5","Trung tâm thương mại"], "SIM004":["Khu vực Quận 7","Khu dân cư"],
-    "SIM005":["Khu vực Quận 1","Trung tâm thương mại"], "SIM006":["Khu vực Bình Thạnh","Gần trường học"],
-    "SIM007":["Khu vực Tân Bình","Văn phòng"], "SIM008":["Khu vực Thủ Đức","Khu dân cư"],
-    "SIM009":["Khu vực Gò Vấp","Khu dân cư"], "SIM010":["Khu vực Quận 10","Gần trường học"],
-    "SIM011":["Khu vực Quận 3","Trung tâm thương mại"], "SIM012":["Khu vực Bình Thạnh","Khu dân cư"],
-    "SIM013":["Khu vực Thủ Đức","Gần trường học"], "SIM014":["Khu vực Tân Bình","Trung tâm thương mại"],
-    "SIM015":["Khu vực Gò Vấp","Trung tâm thương mại"], "SIM016":["Khu vực Quận 10","Văn phòng"],
-    "SIM017":["Khu vực Quận 7","Trung tâm thương mại"], "SIM018":["Khu vực Thủ Đức","Khu dân cư"],
-    "SIM019":["Khu vực Gò Vấp","Gần trường học"], "SIM020":["Khu vực Tân Bình","Khu dân cư"]
+    "SIM001": [
+      "Khu vực Quận 1",
+      "Văn phòng"
+    ],
+    "SIM002": [
+      "Khu vực Quận 3",
+      "Văn phòng"
+    ],
+    "SIM003": [
+      "Khu vực Quận 5",
+      "Trung tâm thương mại"
+    ],
+    "SIM004": [
+      "Khu vực Quận 7",
+      "Khu dân cư"
+    ],
+    "SIM005": [
+      "Khu vực Quận 1",
+      "Trung tâm thương mại"
+    ],
+    "SIM006": [
+      "Khu vực Bình Thạnh",
+      "Gần trường học"
+    ],
+    "SIM007": [
+      "Khu vực Tân Bình",
+      "Văn phòng"
+    ],
+    "SIM008": [
+      "Khu vực Thủ Đức",
+      "Khu dân cư"
+    ],
+    "SIM009": [
+      "Khu vực Gò Vấp",
+      "Khu dân cư"
+    ],
+    "SIM010": [
+      "Khu vực Quận 10",
+      "Gần trường học"
+    ],
+    "SIM011": [
+      "Khu vực Quận 3",
+      "Trung tâm thương mại"
+    ],
+    "SIM012": [
+      "Khu vực Bình Thạnh",
+      "Khu dân cư"
+    ],
+    "SIM013": [
+      "Khu vực Thủ Đức",
+      "Gần trường học"
+    ],
+    "SIM014": [
+      "Khu vực Tân Bình",
+      "Trung tâm thương mại"
+    ],
+    "SIM015": [
+      "Khu vực Gò Vấp",
+      "Trung tâm thương mại"
+    ],
+    "SIM016": [
+      "Khu vực Quận 10",
+      "Văn phòng"
+    ],
+    "SIM017": [
+      "Khu vực Quận 7",
+      "Trung tâm thương mại"
+    ],
+    "SIM018": [
+      "Khu vực Thủ Đức",
+      "Khu dân cư"
+    ],
+    "SIM019": [
+      "Khu vực Gò Vấp",
+      "Gần trường học"
+    ],
+    "SIM020": [
+      "Khu vực Tân Bình",
+      "Khu dân cư"
+    ],
+    "SIM021": [
+      "Khu vực Quận 2",
+      "Văn phòng"
+    ],
+    "SIM022": [
+      "Khu vực Quận 4",
+      "Trung tâm thương mại"
+    ],
+    "SIM023": [
+      "Khu vực Quận 6",
+      "Khu dân cư"
+    ],
+    "SIM024": [
+      "Khu vực Quận 8",
+      "Gần trường học"
+    ],
+    "SIM025": [
+      "Khu vực Quận 9",
+      "Văn phòng"
+    ],
+    "SIM026": [
+      "Khu vực Quận 11",
+      "Trung tâm thương mại"
+    ],
+    "SIM027": [
+      "Khu vực Quận 12",
+      "Khu dân cư"
+    ],
+    "SIM028": [
+      "Khu vực Tân Phú",
+      "Gần trường học"
+    ],
+    "SIM029": [
+      "Khu vực Phú Nhuận",
+      "Văn phòng"
+    ],
+    "SIM030": [
+      "Khu vực Bình Tân",
+      "Trung tâm thương mại"
+    ],
+    "SIM031": [
+      "Khu vực Quận 2",
+      "Gần trường học"
+    ],
+    "SIM032": [
+      "Khu vực Quận 4",
+      "Văn phòng"
+    ],
+    "SIM033": [
+      "Khu vực Quận 6",
+      "Trung tâm thương mại"
+    ],
+    "SIM034": [
+      "Khu vực Quận 8",
+      "Khu dân cư"
+    ],
+    "SIM035": [
+      "Khu vực Quận 9",
+      "Gần trường học"
+    ],
+    "SIM036": [
+      "Khu vực Quận 11",
+      "Văn phòng"
+    ],
+    "SIM037": [
+      "Khu vực Quận 12",
+      "Trung tâm thương mại"
+    ],
+    "SIM038": [
+      "Khu vực Tân Phú",
+      "Khu dân cư"
+    ],
+    "SIM039": [
+      "Khu vực Phú Nhuận",
+      "Gần trường học"
+    ],
+    "SIM040": [
+      "Khu vực Bình Tân",
+      "Văn phòng"
+    ],
+    "SIM041": [
+      "Khu vực Quận 2",
+      "Khu dân cư"
+    ],
+    "SIM042": [
+      "Khu vực Quận 4",
+      "Gần trường học"
+    ],
+    "SIM043": [
+      "Khu vực Quận 6",
+      "Văn phòng"
+    ],
+    "SIM044": [
+      "Khu vực Quận 8",
+      "Trung tâm thương mại"
+    ],
+    "SIM045": [
+      "Khu vực Quận 9",
+      "Khu dân cư"
+    ],
+    "SIM046": [
+      "Khu vực Quận 11",
+      "Gần trường học"
+    ],
+    "SIM047": [
+      "Khu vực Quận 12",
+      "Văn phòng"
+    ],
+    "SIM048": [
+      "Khu vực Tân Phú",
+      "Trung tâm thương mại"
+    ],
+    "SIM049": [
+      "Khu vực Phú Nhuận",
+      "Khu dân cư"
+    ],
+    "SIM050": [
+      "Khu vực Bình Tân",
+      "Gần trường học"
+    ]
+  },
+  "mo_rong_50_cua_hang": {
+    "seed": 20261007,
+    "so_cua_hang_moi": 30,
+    "ghi_chu": "Địa bàn theo tên quận cũ, gồm Quận 2, Quận 9 và Thủ Đức. Không phải địa giới hiện hành. Các cửa hàng và vận hành bổ sung là mô phỏng; 20 cửa hàng ban đầu giữ nguyên. Các giả thiết tạo vận hành được khai báo trong Script/expand_stores.py."
   }
 }
