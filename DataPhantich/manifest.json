@@ -1,19 +1,19 @@
 {
   "nhan_du_lieu": "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.",
-  "tao_luc_UTC": "2026-10-07T01:44:14.590185+00:00",
+  "tao_luc_UTC": "2026-10-28T01:33:16.266948+00:00",
   "nguon_chinh": [
-    "02_KFC_TPHCM_cua_hang_mo_phong.csv",
-    "DULIEUTHO.csv"
+    "Cua Hang.csv",
+    "Doanh Thu.csv"
   ],
-  "quy_tac": "Chỉ đọc CSV 02 và DULIEUTHO.csv; chuẩn hóa, phục hồi theo công thức, loại dòng lỗi/trùng có nhật ký; tệp sạch duy nhất là DataSach/DULIEUSACH.csv.",
+  "quy_tac": "Chỉ đọc một CSV danh mục cửa hàng và một CSV vận hành đang có trong DataGoc; chuẩn hóa, phục hồi theo công thức, loại dòng lỗi/trùng có nhật ký; tệp sạch duy nhất là DataSach/DULIEUSACH.csv.",
   "nguon": [
     {
-      "tep": "02_KFC_TPHCM_cua_hang_mo_phong.csv",
-      "sha256": "a016b1e15a53d5d7f5260cfb8f79da1f3bf83f3bf3107a981f7a9087a4c1e1c7"
+      "tep": "Cua Hang.csv",
+      "sha256": "737bc5d1103631f4b248f9608bd3b9d5e3d40e23a01253593ead82757253c00a"
     },
     {
-      "tep": "DULIEUTHO.csv",
-      "sha256": "bde0568589c059e16146782d5dca9ada9e6edd129062310b8ce891f223d27e2d"
+      "tep": "Doanh Thu.csv",
+      "sha256": "f3533a864e7d45d2d729ae3dfca1189636304d4d166a6b3967744e589953cf76"
     }
   ],
   "bang_xuat": {

@@ -10,7 +10,7 @@ import pandas as pd
 STORE_NUMBERS = ["don_co_so", "AOV_co_so_VND", "ty_le_gia_von", "ty_le_nen_tang",
                  "ty_le_online_rieng", "luong_co_so_VND", "thue_co_so_VND",
                  "khac_co_so_VND", "khau_hao_VND"]
-TEXT_FIELDS = ["store_id", "thanh_pho", "loai_du_lieu", "phien_ban"]
+TEXT_FIELDS = ["store_id", "thanh_pho", "phien_ban"]
 EMPTY = {"", "error", "null", "none", "n/a", "na", "nan", "#value!", "#n/a"}
 
 
@@ -69,6 +69,7 @@ def clean_sources(raw_dir, store_file, fact_file, base_numbers, derive, quality)
     def read(name):
         frame = pd.read_csv(raw_dir / name, encoding="utf-8-sig", dtype=str, keep_default_na=False)
         frame.columns = frame.columns.str.strip()
+        frame = frame.drop(columns=[c for c in frame.columns if c == "loai_du_lieu"], errors="ignore")
         if frame.columns.duplicated().any():
             raise ValueError(f"{name}: tên cột bị trùng sau chuẩn hóa")
         frame["__row"] = np.arange(2, len(frame) + 2)
@@ -101,8 +102,6 @@ def clean_sources(raw_dir, store_file, fact_file, base_numbers, derive, quality)
                 aliases = {"tp.hcm": "TP.HCM", "tp hcm": "TP.HCM", "tp. hồ chí minh": "TP.HCM",
                            "hồ chí minh": "TP.HCM", "ho chi minh": "TP.HCM", "hcm": "TP.HCM"}
                 values = values.map(lambda v: aliases.get(v.casefold(), v))
-            elif col == "loai_du_lieu":
-                values = values.str.upper()
             else:
                 values = values.map(lambda v: "HCM_SIM_v1" if v.casefold() == "hcm_sim_v1" else v)
             update(frame, col, values, "CHUAN_HOA_CHU")
@@ -126,7 +125,7 @@ def clean_sources(raw_dir, store_file, fact_file, base_numbers, derive, quality)
             problems = []
             if not re.fullmatch(r"SIM\d{3}", row.store_id):
                 problems.append("Mã cửa hàng sai/thiếu")
-            if row.thanh_pho != "TP.HCM" or row.loai_du_lieu != "MO_PHONG" or row.phien_ban != "HCM_SIM_v1":
+            if row.thanh_pho != "TP.HCM" or row.phien_ban != "HCM_SIM_v1":
                 problems.append("Sai/thiếu phạm vi, nhãn hoặc phiên bản")
             if pd.isna(row[date_col]):
                 problems.append("Ngày sai/thiếu")

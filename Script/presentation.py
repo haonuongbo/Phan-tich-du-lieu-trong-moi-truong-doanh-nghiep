@@ -38,8 +38,8 @@ def report_content(tables, quality):
     sections = [
         ("1. Mục tiêu và phạm vi", [
             "Thiết kế hệ thống phân tích doanh thu KFC tại TP.HCM theo tài liệu THIẾT KẾ HỆ THỐNG.docx: quản lý nguồn → làm sạch bằng Pandas → tính KPI → cung cấp dữ liệu Power BI → báo cáo và đề xuất.",
-            f"Nguồn cửa hàng: 02_KFC_TPHCM_cua_hang_mo_phong.csv. Nguồn vận hành: {quality['nguon_van_hanh']}. Phạm vi {quality['tu_thang']} đến {quality['den_thang']}; {quality['so_dong_sach']} bản ghi cửa hàng–tháng, {quality['so_cua_hang']} cửa hàng hư cấu.",
-            "Nguồn vận hành DULIEUTHO.csv là CSV UTF-8 đúng định dạng, chuyển từ dữ liệu Excel được cung cấp. Hai nguồn thô có lỗi mô phỏng để thực hành làm sạch; không lấy KPI có sẵn làm nguồn."]),
+            f"Nguồn cửa hàng: {quality['nguon_cua_hang']}. Nguồn vận hành: {quality['nguon_van_hanh']}. Phạm vi {quality['tu_thang']} đến {quality['den_thang']}; {quality['so_dong_sach']} bản ghi cửa hàng–tháng, {quality['so_cua_hang']} cửa hàng hư cấu.",
+            "Hai CSV nguồn đang có trong DataGoc chứa dữ liệu thô có lỗi; pipeline làm sạch trực tiếp và không dùng KPI có sẵn làm nguồn."]),
         ("2. Kiến trúc và xử lý dữ liệu", [
             "Pipeline đọc hai nguồn thô trong DataGoc. DataSach/DULIEUSACH.csv là một tệp sạch duy nhất, gộp vận hành và thuộc tính cửa hàng. DataPhantich chứa mô hình sao và bảng KPI dùng cho dashboard.",
             "Mỗi dòng Fact_Operation là một cửa hàng trong một tháng; khóa ghép store_id + thang. Fact_Channel có thêm khóa kenh. Chiều thời gian liên tục theo ngày, quan hệ một–nhiều, lọc một chiều từ dimension sang fact.",
@@ -79,8 +79,7 @@ def generate_dashboard(tables, quality, project=ROOT):
     project = Path(project)
     payload = {"fact": json.loads(tables['Fact_Operation'].to_json(orient='records',date_format='iso')),
                "menu": json.loads(tables['Fact_Menu'].to_json(orient='records',date_format='iso')),
-               "stores": json.loads(tables['Dim_Store'].to_json(orient='records',date_format='iso')),
-               "quality": quality}
+               "stores": json.loads(tables['Dim_Store'].to_json(orient='records',date_format='iso'))}
     template = (project / 'Script/dashboard.html').read_text(encoding='utf-8')
     (project / 'BaoCao/dashboard.html').write_text(template.replace('__PAYLOAD__',json.dumps(payload,ensure_ascii=False).replace('</','<\\/')),encoding='utf-8')
 

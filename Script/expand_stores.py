@@ -1,14 +1,17 @@
-"""Mở rộng kịch bản từ 20 lên 50 cửa hàng; giữ nguyên các dòng nguồn cũ."""
+
 import json
 import numpy as np
 import pandas as pd
-from pipeline import ROOT, STORE_FILE, CSV_PRIMARY, load_clean, derive
+from pipeline import (ROOT, STORE_FILE, CSV_PRIMARY, STORE_FILE_ALIASES,
+                      CSV_PRIMARY_ALIASES, load_clean, derive, resolve_source_file)
 
 DISTRICTS = ['Quận 2','Quận 4','Quận 6','Quận 8','Quận 9','Quận 11','Quận 12','Tân Phú','Phú Nhuận','Bình Tân']
 
 def expand(project=ROOT):
     raw=project/'DataGoc'
     stores,fact=load_clean(raw,{})
+    store_file=resolve_source_file(raw,STORE_FILE,STORE_FILE_ALIASES)
+    fact_file=resolve_source_file(raw,CSV_PRIMARY,CSV_PRIMARY_ALIASES)
     if len(stores)==50:
         print('Nguồn đã có 50 cửa hàng; không thêm dòng trùng.')
         return
@@ -51,13 +54,13 @@ def expand(project=ROOT):
                 luong_VND=int(round(donor.luong_co_so_VND*1.04**year_delta)),
                 thue_VND=int(round(donor.thue_co_so_VND*1.03**year_delta)),
                 khac_VND=int(round(donor.khac_co_so_VND*1.03**year_delta)),khau_hao_VND=donor.khau_hao_VND,
-                loai_du_lieu='MO_PHONG',phien_ban='HCM_SIM_v1')
+                phien_ban='HCM_SIM_v1')
             for channel,count,mult in zip(['tai_quan','nen_tang','online_rieng'],counts,[1,1.08,1.04]):
                 row['don_'+channel]=count
                 row['AOV_'+channel]=int(round(donor.AOV_co_so_VND*mult*1.02**year_delta*rng.uniform(.97,1.03)))
             new_facts.append(row)
     additions=derive(pd.DataFrame(new_facts))
-    for filename,new,datecol in [(STORE_FILE,pd.DataFrame(new_stores),'ngay_mo'),(CSV_PRIMARY,additions,'thang')]:
+    for filename,new,datecol in [(store_file,pd.DataFrame(new_stores),'ngay_mo'),(fact_file,additions,'thang')]:
         original=pd.read_csv(raw/filename,dtype=str,keep_default_na=False,encoding='utf-8-sig')
         new=new[original.columns].copy()
         new[datecol]=new[datecol].dt.strftime('%m/%d/%Y')

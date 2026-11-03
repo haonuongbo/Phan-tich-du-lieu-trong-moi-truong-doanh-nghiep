@@ -8,7 +8,7 @@ Kiểm tra ngày 03/10/2026 trên Windows, Python 3.14.2, Pandas 3.0.6. Nguồn 
 | Python unittest | 13 kiểm thử đạt, gồm đối chiếu độc lập bằng Decimal và các trường hợp dữ liệu lỗi |
 | Logic bộ lọc dashboard | 315 tổ hợp năm/quý/cửa hàng và đặt lại bộ lọc đạt, không có NaN/Infinity |
 | Notebook | Chạy thành công toàn bộ 6 ô mã bằng Python; chưa kiểm tra giao diện kernel Jupyter |
-| Dashboard trong Chrome | Dựng thành công ở 1440 × 1100, kiểm tra ảnh dashboard_preview.png |
+| Dashboard trong Chrome | Dựng thành công ở 1440 × 1100; ảnh xem trước cũ đã được dọn ngày 14/10/2026 |
 | Word / PowerPoint | Mở lại bằng python-docx/python-pptx; cấu trúc ZIP hợp lệ, PowerPoint có 7 slide |
 | Power BI | Đã chuẩn bị mô hình CSV, M, DAX, theme và hướng dẫn; chưa chạy kiểm tra bằng Power BI Desktop hoặc tạo PBIX |
 
