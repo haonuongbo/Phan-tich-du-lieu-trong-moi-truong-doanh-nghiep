@@ -13,6 +13,8 @@ from cleaning import clean_sources
 ROOT = Path(__file__).resolve().parents[1]
 STORE_FILE = "02_KFC_TPHCM_cua_hang_mo_phong.csv"
 CSV_PRIMARY = "DULIEUTHO.csv"
+STORE_FILE_ALIASES = ("Cua Hang.csv",)
+CSV_PRIMARY_ALIASES = ("Doanh Thu.csv",)
 LABEL = "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC."
 CHANNELS = ["tai_quan", "nen_tang", "online_rieng"]
 BASE_NUMBERS = ([f"don_{c}" for c in CHANNELS] + [f"AOV_{c}" for c in CHANNELS]
@@ -25,6 +27,16 @@ ADDITIVE = ["DT_tong", "tong_don", "gia_von_VND", "phi_nen_tang_VND",
 
 class DataQualityError(ValueError):
     """Dừng xuất KPI nếu đầu vào không đủ tin cậy."""
+
+
+def resolve_source_file(raw_dir, preferred, aliases):
+    candidates = (preferred, *aliases)
+    present = [name for name in candidates if (Path(raw_dir) / name).is_file()]
+    if not present:
+        raise DataQualityError(f"Không tìm thấy nguồn {preferred}; tên được hỗ trợ: {', '.join(candidates)}")
+    if len(present) > 1:
+        raise DataQualityError(f"Có nhiều tệp nguồn cùng vai trò: {', '.join(present)}")
+    return present[0]
 
 
 def require(condition, message):
@@ -60,7 +72,10 @@ def derive(frame):
 
 def load_clean(raw_dir, quality):
     try:
-        stores, fact = clean_sources(raw_dir, STORE_FILE, CSV_PRIMARY, BASE_NUMBERS, derive, quality)
+        store_file = resolve_source_file(raw_dir, STORE_FILE, STORE_FILE_ALIASES)
+        fact_file = resolve_source_file(raw_dir, CSV_PRIMARY, CSV_PRIMARY_ALIASES)
+        stores, fact = clean_sources(raw_dir, store_file, fact_file, BASE_NUMBERS, derive, quality)
+        quality["nguon_cua_hang"] = store_file
     except ValueError as error:
         raise DataQualityError(str(error)) from error
     # Dữ liệu này không có đóng cửa. Thiếu cửa hàng-tháng là lỗi, không tự điền 0.
@@ -89,7 +104,6 @@ def aggregate(fact, keys):
     out["bien_LN_gop"] = safe_div(out.loi_nhuan_gop, out.DT_tong)
     out["bien_LN_van_hanh"] = safe_div(out.LN_van_hanh_mo_hinh, out.DT_tong)
     out["ty_trong_DT_online"] = safe_div(out.DT_nen_tang + out.DT_online_rieng, out.DT_tong)
-    out["loai_du_lieu"] = "MO_PHONG"
     return out
 
 
@@ -128,14 +142,13 @@ def comparable_stores(fact):
         cur_revenue = current[current.store_id.isin(ids)].DT_tong.sum() if ids else np.nan
         old_revenue = previous[previous.store_id.isin(ids)].DT_tong.sum() if ids else np.nan
         records.append({"nam": int(year), "so_CH_tuong_duong": len(ids), "DT_cung_CH_nam_nay": cur_revenue,
-                        "DT_cung_CH_nam_truoc": old_revenue, "SSSG": safe_div(cur_revenue, old_revenue) - 1,
-                        "loai_du_lieu": "MO_PHONG"})
+                        "DT_cung_CH_nam_truoc": old_revenue, "SSSG": safe_div(cur_revenue, old_revenue) - 1})
     return pd.DataFrame(records)
 
 
 def build_tables(stores, fact):
     monthly, quarterly, annual = [period_kpis(fact, stores, f) for f in ("M", "Q", "Y")]
-    annual = annual.merge(comparable_stores(fact), on=["nam", "loai_du_lieu"], validate="one_to_one")
+    annual = annual.merge(comparable_stores(fact), on="nam", validate="one_to_one")
     annual["tang_truong_CH"] = annual.CH_binh_quan.pct_change(fill_method=None)
     annual["tang_truong_DT_CH"] = annual.DT_CH.pct_change(fill_method=None)
     annual["thay_doi_bien_LN_diem_pct"] = annual.bien_LN_van_hanh.diff() * 100
@@ -150,11 +163,10 @@ def build_tables(stores, fact):
     dates["thang_so"] = dates.ngay.dt.month
     dates["nam_thang"] = dates.ngay.dt.strftime("%Y-%m")
     dates["nam_quy"] = dates.nam.astype(str) + "-Q" + dates.quy.astype(str)
-    dates["loai_du_lieu"] = "MO_PHONG"
     channels = []
     for c in CHANNELS:
-        channel = fact[["thang", "store_id", f"don_{c}", f"DT_{c}", "loai_du_lieu"]].copy()
-        channel.columns = ["thang", "store_id", "so_don", "doanh_thu", "loai_du_lieu"]
+        channel = fact[["thang", "store_id", f"don_{c}", f"DT_{c}"]].copy()
+        channel.columns = ["thang", "store_id", "so_don", "doanh_thu"]
         channel["kenh"] = c
         channels.append(channel)
     full = annual[annual.du_ky]
@@ -165,8 +177,7 @@ def build_tables(stores, fact):
             cagr = (last.DT_tong / first.DT_tong) ** (1 / (last.nam - first.nam)) - 1
     overview = pd.DataFrame([{"nam_dau": int(full.nam.min()) if len(full) else None,
         "nam_cuoi": int(full.nam.max()) if len(full) else None, "CAGR_doanh_thu": cagr,
-        "ghi_chu": "CAGR chỉ dùng tổng năm đủ 12 tháng; khoảng cách = năm cuối - năm đầu",
-        "loai_du_lieu": "MO_PHONG"}])
+        "ghi_chu": "CAGR chỉ dùng tổng năm đủ 12 tháng; khoảng cách = năm cuối - năm đầu"}])
     return {"Dim_Store": stores, "Dim_Date": dates, "Fact_Operation": fact,
             "Fact_Channel": pd.concat(channels, ignore_index=True), "KPI_Thang": monthly,
             "KPI_Quy": quarterly, "KPI_Nam": annual, "KPI_CuaHang_Nam": aggregate(fact, ["nam", "store_id"]),
@@ -174,6 +185,7 @@ def build_tables(stores, fact):
 
 
 def write_csv(frame, path):
+    frame = frame.drop(columns=[c for c in frame.columns if str(c).strip() == "loai_du_lieu"], errors="ignore")
     frame.to_csv(path, index=False, encoding="utf-8-sig", date_format="%Y-%m-%d", float_format="%.10f")
 
 
@@ -211,14 +223,14 @@ def run(project=ROOT):
               report_dir / "dong_bi_loai.csv")
     for name, table in tables.items():
         write_csv(table, analysis_dir / f"{name}.csv")
-    comparison = pd.DataFrame([{"cot": k, **v, "loai_du_lieu": "MO_PHONG"}
+    comparison = pd.DataFrame([{"cot": k, **v}
                                for k, v in quality["doi_chieu_cong_thuc"].items()])
     write_csv(comparison, report_dir / "doi_chieu_cong_thuc.csv")
     manifest = {"nhan_du_lieu": LABEL, "tao_luc_UTC": datetime.now(timezone.utc).isoformat(),
-        "nguon_chinh": [STORE_FILE, quality["nguon_van_hanh"]],
-        "quy_tac": "Chỉ đọc CSV 02 và DULIEUTHO.csv; chuẩn hóa, phục hồi theo công thức, loại dòng lỗi/trùng có nhật ký; tệp sạch duy nhất là DataSach/DULIEUSACH.csv.",
+        "nguon_chinh": [quality["nguon_cua_hang"], quality["nguon_van_hanh"]],
+        "quy_tac": "Chỉ đọc một CSV danh mục cửa hàng và một CSV vận hành đang có trong DataGoc; chuẩn hóa, phục hồi theo công thức, loại dòng lỗi/trùng có nhật ký; tệp sạch duy nhất là DataSach/DULIEUSACH.csv.",
         "nguon": [{"tep": name, "sha256": hashlib.sha256((raw / name).read_bytes()).hexdigest()}
-                  for name in (STORE_FILE, quality["nguon_van_hanh"])],
+                  for name in (quality["nguon_cua_hang"], quality["nguon_van_hanh"])],
         "bang_xuat": {name: len(table) for name, table in tables.items()}}
     manifest['gia_dinh_menu_khu_vuc'] = {'tep': 'Script/gia_dinh_menu_khu_vuc.json',
         'sha256': hashlib.sha256((project / 'Script/gia_dinh_menu_khu_vuc.json').read_bytes()).hexdigest(),

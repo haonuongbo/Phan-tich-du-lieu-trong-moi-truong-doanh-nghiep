@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1250" viewBox="0 0 1700 1250">
+<title>Kiến trúc chi tiết hệ thống phân tích doanh thu</title>
+<desc>Thiết kế đề xuất. CSV, Pandas, KPI và dashboard hiện có; kho phiên bản, SQLite, crawler và Machine Learning cần bổ sung.</desc>
+<rect width="1700" height="1250" fill="#f7f8fc"/>
+<text x="40" y="60" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="700" fill="#1e3155">KIẾN TRÚC CHI TIẾT HỆ THỐNG PHÂN TÍCH DOANH THU</text>
+<text x="40" y="98" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#28334b">Thiết kế đề xuất cho quy mô 50 cửa hàng • tách nguồn, xử lý trong RAM, lưu trên ổ đĩa và client</text>
+<text x="40" y="133" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#65718a">ĐÃ CÓ: CSV, Pandas, nhật ký, hash nguồn, KPI, HTML  |  BỔ SUNG: kho phiên bản, SQLite, crawler, ML</text>
+<rect x="40" y="160" width="480" height="270" rx="16" fill="#ffffff" stroke="#244e9c" stroke-width="2"/>
+<text x="62" y="201" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#244e9c">1. NGUỒN — nguồn nào cho trường nào?</text>
+<text x="62" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">DataGoc/02…csv: danh mục cửa hàng</text>
+<text x="62" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">DataGoc/DULIEUTHO.csv: vận hành tháng</text>
+<text x="62" y="292" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Bán hàng/cửa hàng hiện tại: mô phỏng</text>
+<text x="62" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Cấu hình JSON: menu + vị trí giả định</text>
+<text x="62" y="342" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Website KFC: chỉ thực đơn công khai</text>
+<text x="62" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">POS/ERP: bổ sung khi có quyền truy cập</text>
+<text x="62" y="392" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Không lấy doanh thu nội bộ từ website</text>
+<rect x="560" y="160" width="530" height="270" rx="16" fill="#ffffff" stroke="#244e9c" stroke-width="2"/>
+<text x="582" y="201" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#244e9c">2. TIẾP NHẬN — bên trong tiến trình Python</text>
+<text x="582" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">CSV: pathlib + pandas.read_csv [đã có]</text>
+<text x="582" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">HTTP: requests [đề xuất]</text>
+<text x="582" y="292" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">HTML: BeautifulSoup [đề xuất]</text>
+<text x="582" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Kiểm tra timeout, HTTP và đủ trang/tệp</text>
+<text x="582" y="342" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Gán run_id, source_id, thời gian, phạm vi</text>
+<text x="582" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">SHA-256 + schema + số dòng</text>
+<text x="582" y="392" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Ghi rõ nguồn mô phỏng / công khai / POS</text>
+<rect x="1130" y="160" width="530" height="270" rx="16" fill="#fffaf0" stroke="#956516" stroke-width="2"/>
+<text x="1152" y="201" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#956516">3. BẢN THÔ VÀ TỆP TẠM — ổ đĩa</text>
+<text x="1152" y="242" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">DataGoc/archive/&lt;run_id&gt;/ [đề xuất]</text>
+<text x="1152" y="267" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Giữ CSV/HTML/JSON nhận đủ, không sửa</text>
+<text x="1152" y="292" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Manifest: nguồn + thời gian + hash</text>
+<text x="1152" y="317" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Staging/&lt;run_id&gt;/*.part [đề xuất]</text>
+<text x="1152" y="342" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Chưa nhận đủ: không công bố</text>
+<text x="1152" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Giữ bản cũ để so thêm / sửa / mất dòng</text>
+<text x="1152" y="392" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Có thể chạy lại nếu mất dữ liệu trong RAM</text>
+<rect x="40" y="500" width="600" height="360" rx="16" fill="#ffffff" stroke="#257758" stroke-width="2"/>
+<text x="62" y="541" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#257758">4. XỬ LÝ / LÀM SẠCH — RAM</text>
+<text x="62" y="582" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Python DataFrame: Pandas + NumPy [đã có]</text>
+<text x="62" y="607" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">1. Đọc bản nguồn/snapshot vào RAM</text>
+<text x="62" y="632" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">2. Giữ nguyên ô gốc và dòng CSV để truy vết</text>
+<text x="62" y="657" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">3. re / datetime: chuẩn hóa chữ, ngày, số</text>
+<text x="62" y="682" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">4. Phục hồi đơn/AOV khi đủ công thức</text>
+<text x="62" y="707" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">5. Loại/cách ly lỗi; bỏ trùng có nhật ký</text>
+<text x="62" y="732" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">6. Kiểm tra khóa và đủ cửa hàng–tháng</text>
+<text x="62" y="757" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">7. Tính doanh thu, AOV, lợi nhuận, KPI</text>
+<text x="62" y="782" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">8. Gắn run_id / snapshot_id [bổ sung]</text>
+<text x="62" y="807" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">RAM là nơi xử lý, không là bản lưu duy nhất</text>
+<text x="62" y="832" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Không đạt → không công bố bộ mới</text>
+<rect x="680" y="500" width="980" height="360" rx="16" fill="#f1f5ff" stroke="#244e9c" stroke-width="2"/>
+<text x="702" y="541" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" fill="#244e9c">5. LƯU DỮ LIỆU SẠCH / KHO PHÂN TÍCH / NHẬT KÝ — ổ đĩa</text>
+<rect x="700" y="570" width="300" height="218" rx="16" fill="#ffffff" stroke="#244e9c" stroke-width="2"/>
+<text x="722" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#244e9c">Bảng sạch</text>
+<text x="722" y="650" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">DataSach/versions/</text>
+<text x="722" y="675" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">&lt;run_id&gt;/DULIEUSACH.csv</text>
+<text x="722" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Khóa: cửa hàng–tháng</text>
+<text x="722" y="725" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Bản sạch đã kiểm tra</text>
+<text x="722" y="750" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">CSV đã có; phiên bản bổ sung</text>
+<rect x="1020" y="570" width="300" height="218" rx="16" fill="#ffffff" stroke="#244e9c" stroke-width="2"/>
+<text x="1042" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#244e9c">Dimension / Fact / KPI</text>
+<text x="1042" y="650" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">DataPhantich/versions/</text>
+<text x="1042" y="675" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">&lt;run_id&gt;/</text>
+<text x="1042" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Dim_Store / Date / Menu</text>
+<text x="1042" y="725" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Fact vận hành / kênh / món</text>
+<text x="1042" y="750" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">KPI + dự báo riêng nếu có</text>
+<rect x="1340" y="570" width="300" height="218" rx="16" fill="#fffaf0" stroke="#956516" stroke-width="2"/>
+<text x="1362" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#956516">Metadata / kiểm toán</text>
+<text x="1362" y="650" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Metadata/audit.sqlite</text>
+<text x="1362" y="675" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Runs, snapshots, file/row hash</text>
+<text x="1362" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Sửa ô: cũ / mới / quy tắc</text>
+<text x="1362" y="725" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">Loại dòng: nguyên bản / lý do</text>
+<text x="1362" y="750" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="400" fill="#28334b">SQLite và lịch sử: bổ sung</text>
+<text x="702" y="829" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#244e9c">Công bố đề xuất: ghi đủ bộ mới → kiểm tra → đổi active.json; lỗi thì giữ phiên bản cũ</text>
+<rect x="40" y="940" width="600" height="230" rx="16" fill="#fffaf0" stroke="#956516" stroke-width="2"/>
+<text x="62" y="981" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#956516">6. PHÂN TÍCH / ML — phần mở rộng</text>
+<text x="62" y="1022" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Mô tả: Pandas/NumPy [đã có]</text>
+<text x="62" y="1047" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Dự báo: baseline mùa vụ → scikit-learn</text>
+<text x="62" y="1072" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Đặc trưng trễ; train/test theo tháng</text>
+<text x="62" y="1097" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">MAE/RMSE; không dùng thông tin tương lai</text>
+<text x="62" y="1122" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">Models/&lt;model_id&gt;/ + Forecast_Thang.csv</text>
+<text x="62" y="1147" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#28334b">ML chưa triển khai; không thay số lịch sử</text>
+<rect x="680" y="940" width="980" height="230" rx="16" fill="#ffffff" stroke="#257758" stroke-width="2"/>
+<text x="702" y="981" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#257758">7. CLIENT — đọc phiên bản đã công bố</text>
+<text x="704" y="1022" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#257758">TRÌNH DUYỆT</text>
+<text x="1200" y="1022" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#257758">POWER BI DESKTOP</text>
+<text x="704" y="1053" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">HTML + CSS + JavaScript + SVG</text>
+<text x="704" y="1078" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">JSON nhúng; lọc, sắp xếp, xuất CSV</text>
+<text x="704" y="1103" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">Hiện có bản dashboard offline</text>
+<text x="704" y="1128" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">Run_id / thời điểm dữ liệu: bổ sung</text>
+<text x="1200" y="1053" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">Power Query M đọc CSV</text>
+<text x="1200" y="1078" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">Dim → fact một chiều; DAX tính KPI</text>
+<text x="1200" y="1103" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">Có mã; chưa kiểm chứng PBIX</text>
+<text x="1200" y="1128" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#28334b">API nhiều người: tùy chọn sau này</text>
+<polyline points="520,295 560,295" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="560,295 550,289 550,301" fill="#63728c"/>
+<polyline points="1090,295 1130,295" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="1130,295 1120,289 1120,301" fill="#63728c"/>
+<polyline points="1395,430 1395,465 340,465 340,500" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="340,500 334,490 346,490" fill="#63728c"/>
+<text x="575" y="457" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#63728c">Đọc từ bản thô đã lưu</text>
+<polyline points="640,680 680,680" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="680,680 670,674 670,686" fill="#63728c"/>
+<polyline points="1170,860 1170,902 340,902 340,940" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="340,940 334,930 346,930" fill="#63728c"/>
+<polyline points="1170,902 1170,940" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="1170,940 1164,930 1176,930" fill="#63728c"/>
+<polyline points="640,1055 680,1055" fill="none" stroke="#63728c" stroke-width="3"/>
+<polygon points="680,1055 670,1049 670,1061" fill="#63728c"/>
+<text x="40" y="1218" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#65718a">Lưu ý: Hash giúp phát hiện nội dung thay đổi; muốn biết ai sửa cần tài khoản, phân quyền và audit riêng.</text>
+</svg>

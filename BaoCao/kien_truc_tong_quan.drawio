@@ -1,0 +1,65 @@
+<mxfile host="app.diagrams.net" compressed="false">
+  <diagram id="overview" name="Kiến trúc tổng quan">
+    <mxGraphModel dx="1414" dy="743" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Segoe UI;fontSize=32;fontStyle=1;fontColor=#263954;" value="KIẾN TRÚC HỆ THỐNG PHÂN TÍCH DOANH THU" vertex="1">
+          <mxGeometry height="44" width="1420" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Segoe UI;fontSize=21;fontStyle=0;fontColor=#263954;" value="Mô hình đề xuất • Nguồn dữ liệu → Xử lý → Phân tích → Hiển thị" vertex="1">
+          <mxGeometry height="32" width="1420" x="40" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="server" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#edf3fc;strokeColor=#b9cbe4;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;align=left;spacingTop=17;spacingLeft=22;fontStyle=1;" value="&lt;b&gt;HỆ THỐNG XỬ LÝ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="420" width="820" x="272" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ingest" parent="server" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#315d9e;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Thu thập&lt;/b&gt;&lt;br&gt;Tiếp nhận dữ liệu&lt;br&gt;Kiểm tra nguồn" vertex="1">
+          <mxGeometry height="150" width="220" x="25" y="71" as="geometry" />
+        </mxCell>
+        <mxCell id="clean" parent="server" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#267659;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Làm sạch &amp;amp; kiểm tra&lt;/b&gt;&lt;br&gt;Chuẩn hóa · Bỏ trùng&lt;br&gt;Kiểm tra chất lượng" vertex="1">
+          <mxGeometry height="150" width="220" x="312" y="71" as="geometry" />
+        </mxCell>
+        <mxCell id="analysis" parent="server" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#267659;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Phân tích&lt;/b&gt;&lt;br&gt;Tính các chỉ số&lt;br&gt;Đánh giá xu hướng" vertex="1">
+          <mxGeometry height="150" width="220" x="574" y="71" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" parent="server" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff9ed;strokeColor=#936820;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Lưu trữ&lt;/b&gt;&lt;br&gt;Dữ liệu thô · Dữ liệu sạch&lt;br&gt;Lịch sử thay đổi" vertex="1">
+          <mxGeometry height="130" width="490" x="170" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="source" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#315d9e;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Nguồn dữ liệu&lt;/b&gt;&lt;br&gt;Dữ liệu kinh doanh&lt;br&gt;Thực đơn công khai" vertex="1">
+          <mxGeometry height="150" width="230" x="23" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#315d9e;strokeWidth=2;fontColor=#263954;fontFamily=Segoe UI;fontSize=20;align=center;verticalAlign=middle;spacing=12;" value="&lt;b&gt;Dashboard &amp;amp; báo cáo&lt;/b&gt;&lt;br&gt;Biểu đồ · Bộ lọc&lt;br&gt;Theo dõi kết quả" vertex="1">
+          <mxGeometry height="150" width="300" x="1121" y="241" as="geometry" />
+        </mxCell>
+        <mxCell id="edge0" edge="1" parent="1" source="source" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ingest" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="ingest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.14285714285714285;entryY=0;" target="storage" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="405" />
+              <mxPoint x="540" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="storage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=0.3673469387755102;exitY=0;entryX=0.174;entryY=1.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="clean" value="">
+          <mxGeometry relative="1" x="-0.0856" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="clean" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=0.6818181818181818;exitY=1;entryX=0.594;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="storage" value="">
+          <mxGeometry relative="1" x="-0.2098" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="storage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=0.944;exitY=0.015;entryX=0.271;entryY=0.992;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="analysis" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="904.6" y="406.8" />
+              <mxPoint x="904.6" y="406.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="analysis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#607590;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="client" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

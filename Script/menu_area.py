@@ -38,14 +38,13 @@ def extend(tables, project):
                 menu_id=item.menu_id, ten_mon=item.ten_mon, nhom_mon=item.nhom_mon,
                 so_luong_uoc_tinh=qty, doanh_thu_phan_bo_VND=amount,
                 gia_binh_quan_uoc_tinh_VND=amount/qty if qty else 0,
-                nam=r.thang.year, quy=r.thang.quarter, loai_du_lieu='MO_PHONG', co_so_du_lieu=NOTE))
+                nam=r.thang.year, quy=r.thang.quarter, co_so_du_lieu=NOTE))
     sales = pd.DataFrame(records)
     reconciled = sales.groupby(['thang','store_id','kenh']).doanh_thu_phan_bo_VND.sum()
     original = tables['Fact_Channel'].set_index(['thang','store_id','kenh']).doanh_thu
     if not np.allclose(reconciled.reindex(original.index), original, atol=.01, rtol=0):
         raise ValueError('Phân bổ món không khớp doanh thu kênh nguồn.')
     menu['co_so_du_lieu'] = NOTE
-    menu['loai_du_lieu'] = 'MO_PHONG'
     tables.update(Dim_Store=stores, Dim_Menu=menu, Fact_Menu=sales)
     for name, keys in [('KPI_Mon_Nam',['nam','menu_id','ten_mon','nhom_mon']), ('KPI_NhomMon_Nam',['nam','nhom_mon'])]:
         out = sales.groupby(keys, as_index=False).agg(doanh_thu_phan_bo_VND=('doanh_thu_phan_bo_VND','sum'),so_luong_uoc_tinh=('so_luong_uoc_tinh','sum'))

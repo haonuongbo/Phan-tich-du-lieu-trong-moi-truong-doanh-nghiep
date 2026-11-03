@@ -1,5 +1,7 @@
 # Thiết kế hệ thống làm sạch và phân tích
 
+Thiết kế chi tiết bổ sung ngày 13/10/2026: [Nguồn, xử lý trong RAM, lưu trữ, phát hiện sửa/xóa và công nghệ](BaoCao/KIEN_TRUC_CHI_TIET.md). Tài liệu phân biệt hiện trạng đã kiểm tra với kiến trúc đề xuất; [sơ đồ vector](BaoCao/kien_truc_chi_tiet.svg) và [ảnh sơ đồ](BaoCao/kien_truc_chi_tiet.png) dùng để trình bày.
+
 Nguồn mô phỏng: bảng cửa hàng 02 và DULIEUTHO.csv, phạm vi 2023–2025. DataGoc chứa dữ liệu thô có lỗi được thêm có chủ đích; pipeline không chỉnh nguồn khi chạy.
 
 ```mermaid

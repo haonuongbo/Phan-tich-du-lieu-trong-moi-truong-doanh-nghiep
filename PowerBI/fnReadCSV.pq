@@ -6,7 +6,7 @@ let
         [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
     Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     EmptyAsNull = Table.ReplaceValue(Headers, "", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),
-    TextNames = {"store_id", "thanh_pho", "loai_du_lieu", "phien_ban", "nguon_tep", "nguon_sheet",
+    TextNames = {"store_id", "thanh_pho", "phien_ban", "nguon_tep", "nguon_sheet",
                  "nam_thang", "nam_quy", "kenh", "trang_thai", "ghi_chu", "menu_id", "ten_mon", "nhom_mon",
                  "khu_vuc_gia_dinh", "loai_vi_tri_gia_dinh", "co_so_vi_tri", "co_so_du_lieu"},
     DateNames = {"ngay", "ngay_mo", "thang", "ky"},

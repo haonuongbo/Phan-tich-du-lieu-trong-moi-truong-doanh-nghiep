@@ -13,14 +13,14 @@ Dataset này phục vụ thực hành làm sạch, phân tích xu hướng và t
 | MENU_CONGKHAI_THO.csv | 8 | Mẫu thực đơn công khai; giá còn ở dạng chuỗi như 37.000₫ |
 | MENU_CONGKHAI_SACH.csv | 8 | Cùng mẫu thực đơn, chuyển giá sang số VND |
 | NHATKY_LAMSACH.csv | 1.861 | Các sự kiện chuẩn hóa, phục hồi, tính lại và loại dòng; số sự kiện không phải số lỗi |
-| TUDIEN_DULIEU.csv | 82 | Ý nghĩa, kiểu dữ liệu và nguồn gốc của từng cột theo từng tệp |
+| TUDIEN_DULIEU.csv | 78 | Ý nghĩa, kiểu dữ liệu và nguồn gốc của từng cột theo từng tệp |
 | manifest.json | — | Phạm vi, nguồn, số dòng, kiểm tra và mã băm tệp |
 
 Tất cả CSV dùng UTF-8 có BOM, dấu phẩy phân cột, dấu chấm thập phân. Khi nhập vào Power BI/Excel, chọn đúng kiểu ngày và số theo từ điển. Bản thô chủ ý giữ định dạng không đồng nhất; không tính tổng trực tiếp trước khi xử lý. Giá trị trong CSV là ảnh chụp kết quả, không có công thức tự tính lại khi sửa đầu vào.
 
 ## Dữ liệu có nguồn và dữ liệu mô phỏng
 
-- Các bảng bán hàng/cửa hàng (nhãn nguồn `loai_du_lieu=MO_PHONG` ở bản sạch): toàn bộ doanh thu, số đơn, AOV, mã cửa hàng, ngày mở và phạm vi địa lý trong các bảng bán hàng/cửa hàng. Ngày mở là giả định của nguồn, không xác nhận ngày khai trương ngoài thực tế.
+- Các bảng bán hàng/cửa hàng: toàn bộ doanh thu, số đơn, AOV, mã cửa hàng, ngày mở và phạm vi địa lý là dữ liệu mô phỏng. Nhãn được công bố ở README và manifest thay vì lặp trong từng dòng CSV. Ngày mở là giả định của nguồn, không xác nhận ngày khai trương ngoài thực tế.
 - Các bảng `MENU_CONGKHAI_*`: tên món, nhóm món và giá hiển thị được tra cứu từ [trang đặt hàng KFC Việt Nam](https://kfcvietnam.com.vn/order/delivery), ngày 11/10/2026. Nội dung được đọc qua chỉ mục tìm kiếm của trang chính thức, không phải ảnh chụp giá tại bước thanh toán. Mẫu chỉ gồm 8 món, không phải toàn bộ thực đơn; chưa chọn nhà hàng cụ thể.
 - `ma_mau_thu_thap` là mã WEB do người xây dựng bộ dữ liệu đặt để truy vết, không phải mã sản phẩm KFC.
 - `ngay_tra_cuu` là ngày kiểm tra nguồn, không xác nhận ngày bắt đầu hiệu lực của giá. Dữ liệu công khai có thể thay đổi hoặc chỉ mục có độ trễ.
@@ -29,7 +29,7 @@ Hai phần có giai đoạn khác nhau. Không nối thực đơn 2026 vào số
 
 ## Những gì đã giữ và đã bỏ
 
-Giữ tháng/năm/quý, mã cửa hàng mô phỏng, thành phố, số đơn ba kênh, AOV ba kênh, doanh thu ba kênh, tổng đơn, tổng doanh thu, AOV tổng và tỷ trọng doanh thu online. Giữ nhãn mô phỏng, phiên bản và dòng nguồn để kiểm tra.
+Giữ tháng/năm/quý, mã cửa hàng mô phỏng, thành phố, số đơn ba kênh, AOV ba kênh, doanh thu ba kênh, tổng đơn, tổng doanh thu, AOV tổng, phiên bản và dòng nguồn để kiểm tra. Bỏ cột `loai_du_lieu` vì tính chất dữ liệu được công bố ở README và manifest.
 
 Bỏ giá vốn, tỷ lệ giá vốn, phí nền tảng, phí nhượng quyền, lương, thuê, chi phí khác, khấu hao, lợi nhuận gộp, lợi nhuận vận hành và biên lợi nhuận. Bỏ các tham số cơ sở không cần cho danh mục cửa hàng. Không đưa thông tin vị trí giả định hoặc phân bổ món từ DataPhantich sang bộ mới.
 

@@ -3,7 +3,7 @@
   "ngay_tao": "2026-10-11",
   "pham_vi_ban_hang": "2023-01 den 2025-12",
   "ngay_tra_cuu_menu": "2026-10-11",
-  "nhan": "Bán hàng và cửa hàng: MO_PHONG. Thực đơn: CONG_KHAI, mẫu từ nội dung chính thức được lập chỉ mục.",
+  "nhan": "Bán hàng và cửa hàng: MO_PHONG; thông tin áp dụng cho toàn bộ dataset và được công bố ở manifest/README, không lặp trong từng dòng CSV. Thực đơn: CONG_KHAI.",
   "nguon_chinh": "Hai CSV trong DataGoc; không dùng DataSach hoặc DataPhantich làm đầu vào.",
   "nguon_menu": "https://kfcvietnam.com.vn/order/delivery",
   "gioi_han_menu": "Chưa chọn cửa hàng; ngày tra cứu không phải ngày hiệu lực. Không dùng giá 2026 cho số bán 2023–2025. Không xác nhận giá thanh toán.",
@@ -15,7 +15,7 @@
     "MENU_CONGKHAI_THO.csv": 8,
     "MENU_CONGKHAI_SACH.csv": 8,
     "NHATKY_LAMSACH.csv": 1861,
-    "TUDIEN_DULIEU.csv": 82
+    "TUDIEN_DULIEU.csv": 78
   },
   "clean_store_months": 576,
   "stores": 20,
@@ -105,26 +105,26 @@
     {
       "file": "CUAHANG_THO.csv",
       "rows": 29,
-      "columns": 7,
-      "sha256": "6e4e147d82b2041c69af8baf9e9909d6a158adde882effa3739d0d9ee5213d3a"
+      "columns": 6,
+      "sha256": "a47aa011b389b42f7942d221af52120bb827313a7e6fffff54b669202d8e4139"
     },
     {
       "file": "CUAHANG_SACH.csv",
       "rows": 20,
-      "columns": 7,
-      "sha256": "97426be692eea13d13cf713bec904f65b2825dfa0721a3c8036d68e863992748"
+      "columns": 6,
+      "sha256": "433ac72b0aa284829b15dda3095e704028a9bea4c5e76d3106265ea617af3933"
     },
     {
       "file": "DULIEUTHO.csv",
       "rows": 597,
-      "columns": 22,
-      "sha256": "b5c58874e03c4dde0f6061f47c9e60dfb7ef626186cbf6210f4154c45faf80d9"
+      "columns": 21,
+      "sha256": "f89954a836951bd97d161067fc26794d4fa5759f8a45747ab7229fdff277f5cb"
     },
     {
       "file": "DULIEUSACH.csv",
       "rows": 576,
-      "columns": 22,
-      "sha256": "acc4a95a95c0e743b9efbd8fa68051ebddc347cc04ab25a6e91a6190c401e8a7"
+      "columns": 21,
+      "sha256": "c902ed2f5db10224f38a5445162fbe82b73200dab4c50e3debb9b5b4254697eb"
     },
     {
       "file": "MENU_CONGKHAI_THO.csv",
@@ -146,14 +146,14 @@
     },
     {
       "file": "TUDIEN_DULIEU.csv",
-      "rows": 82,
+      "rows": 78,
       "columns": 5,
-      "sha256": "4ba6017d803f777fbaf5cfeaec69b904bbb2c259996aecb2febec2e9ce0d93cd"
+      "sha256": "03017c2591eefee0ff738cc87febe6bffa373df61a0d2723305501dfe66cfa55"
     }
   ],
   "cap_nhat": {
-    "ngay": "2026-10-11",
-    "noi_dung": "Bỏ cột ban_chat trùng lặp khỏi 6 CSV và cập nhật từ điển. Giữ nhãn nguồn loai_du_lieu và các mô tả nguồn gốc.",
+    "ngay": "2026-10-28",
+    "noi_dung": "Bỏ cột loai_du_lieu khỏi các CSV; tính chất mô phỏng của dữ liệu bán hàng được giữ công bố ở README và manifest.",
     "gia_tri_con_lai_giu_nguyen": true
   }
 }
