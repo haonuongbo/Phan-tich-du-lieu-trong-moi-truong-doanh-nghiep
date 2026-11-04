@@ -1,14 +1,14 @@
 # HỆ THỐNG PHÂN TÍCH DOANH THU KFC TP.HCM
 
-DỮ LIỆU MÔ PHỎNG
+MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.
 
 ## 1. Mục tiêu và phạm vi
 
 Thiết kế hệ thống phân tích doanh thu KFC tại TP.HCM theo tài liệu THIẾT KẾ HỆ THỐNG.docx: quản lý nguồn → làm sạch bằng Pandas → tính KPI → cung cấp dữ liệu Power BI → báo cáo và đề xuất.
 
-Nguồn cửa hàng: 02_KFC_TPHCM_cua_hang_mo_phong.csv. Nguồn vận hành: DULIEUTHO.csv. Phạm vi 2023-01-01 đến 2025-12-01; 1464 bản ghi cửa hàng–tháng, 50 cửa hàng hư cấu.
+Nguồn cửa hàng: Cua Hang.csv. Nguồn vận hành: Doanh Thu.csv. Phạm vi 2023-01-01 đến 2025-12-01; 1464 bản ghi cửa hàng–tháng, 50 cửa hàng hư cấu.
 
-Nguồn vận hành DULIEUTHO.csv là CSV UTF-8 đúng định dạng, chuyển từ dữ liệu Excel được cung cấp. Hai nguồn thô có lỗi mô phỏng để thực hành làm sạch; không lấy KPI có sẵn làm nguồn.
+Hai CSV nguồn đang có trong DataGoc chứa dữ liệu thô có lỗi; pipeline làm sạch trực tiếp và không dùng KPI có sẵn làm nguồn.
 
 ## 2. Kiến trúc và xử lý dữ liệu
 
@@ -20,7 +20,7 @@ Nguồn có 59 dòng cửa hàng và 1485 dòng vận hành. Loại 4 + 12 dòng
 
 CSV ngày nguồn dùng tháng/ngày/năm, chuẩn hóa thành YYYY-MM-DD. Tiền là VND; tỷ lệ lưu 0–1. Tính lại doanh thu = số đơn × AOV từng kênh; đối chiếu với cột có sẵn, dung sai 1 VND và 1e-8 cho tỷ lệ do làm tròn nguồn.
 
-Chất lượng sau làm sạch: DAT. Đối chiếu 1464 dòng sạch; cột dẫn xuất sai hoặc thiếu được tính lại từ số đơn, AOV và chi phí. Có 1579 lượt sửa/chuẩn hóa ô có nhật ký; không điền số 0 thay cho dữ liệu thiếu.
+Chất lượng sau làm sạch: DAT. Đối chiếu 1464 dòng sạch; cột dẫn xuất sai hoặc thiếu được tính lại từ số đơn, AOV và chi phí. Có 1577 lượt sửa/chuẩn hóa ô có nhật ký; không điền số 0 thay cho dữ liệu thiếu.
 
 ## 3. Định nghĩa KPI
 
@@ -71,3 +71,4 @@ Chưa xác minh cơ sở doanh thu gộp/thuần và thuế VAT của mô hình.
 Bộ nguồn không có ngày đóng cửa hay quận/huyện; giả định cửa hàng hoạt động liên tục từ tháng mở. Khi có đóng cửa hoặc hoạt động giữa tháng cần mở rộng mô hình và quy tắc tính cửa hàng bình quân.
 
 Doanh thu tăng, nếu có, chưa đủ kết luận hiệu quả kinh doanh. Cần đối chiếu doanh thu/cửa hàng, biên vận hành, cùng tập cửa hàng và thị trường có phạm vi tương đương.
+

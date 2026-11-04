@@ -1,9 +1,9 @@
-﻿menu_id, ten_mon                     , nhom_mon          , gia_tham_chieu_VND, co_so_du_lieu
-M01    , Gà rán truyền thống (1 phần), Gà                ,              45000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M02    , Gà sốt cay (1 phần)         , Gà                ,              50000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M03    , Burger gà                   , Burger và cơm     ,              45000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M04    , Cơm gà                      , Burger và cơm     ,              50000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M05    , Combo một người             , Combo             ,              90000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M06    , Combo nhóm                  , Combo             ,             220000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M07    , Khoai tây chiên             , Món phụ và đồ uống,              25000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
-M08    , Nước giải khát              , Món phụ và đồ uống,              15000, GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+﻿menu_id,ten_mon,nhom_mon,gia_tham_chieu_VND,co_so_du_lieu
+M01,Gà rán truyền thống (1 phần),Gà,45000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M02,Gà sốt cay (1 phần),Gà,50000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M03,Burger gà,Burger và cơm,45000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M04,Cơm gà,Burger và cơm,50000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M05,Combo một người,Combo,90000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M06,Combo nhóm,Combo,220000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M07,Khoai tây chiên,Món phụ và đồ uống,25000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS
+M08,Nước giải khát,Món phụ và đồ uống,15000,GIA_DINH_PHAN_BO_KHONG_PHAI_POS

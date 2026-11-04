@@ -1,6 +1,6 @@
 {
   "nhan_du_lieu": "MÔ PHỎNG — Không phản ánh kết quả kinh doanh thực tế của KFC.",
-  "tao_luc_UTC": "2026-10-28T01:33:16.266948+00:00",
+  "tao_luc_UTC": "2026-11-04T01:43:54.208709+00:00",
   "nguon_chinh": [
     "Cua Hang.csv",
     "Doanh Thu.csv"
@@ -9,11 +9,11 @@
   "nguon": [
     {
       "tep": "Cua Hang.csv",
-      "sha256": "737bc5d1103631f4b248f9608bd3b9d5e3d40e23a01253593ead82757253c00a"
+      "sha256": "091caa1c81f7d07c901fac5861458d0b275560067d371c6a6877b8806cb16b4c"
     },
     {
       "tep": "Doanh Thu.csv",
-      "sha256": "f3533a864e7d45d2d729ae3dfca1189636304d4d166a6b3967744e589953cf76"
+      "sha256": "d47dbefcc4aa4a28583414435a1bfd98ef4a3b06437482bd0088252ee3840894"
     }
   ],
   "bang_xuat": {
