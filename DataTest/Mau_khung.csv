@@ -1,0 +1,4 @@
+﻿month,store_code,region,location_type,revenue,orders,operating_profit
+2024-01-01,Q1_01,Quận 1,Văn phòng,385000000,3420,42800000
+2024-02-01,Q1_01,Quận 1,Văn phòng,361500000,3195,38700000
+2024-01-01,BT_01,Bình Thạnh,Gần trường học,327800000,2980,29100000
